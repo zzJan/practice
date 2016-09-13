@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <meta charset="utf8">
+		 <meta name="viewpoint" content="width=device-width initital-scale=1.0">
+		 <title>collapse</title>
+		 <link href="lib/bootstrap.min.css" rel="stylesheet">
+		 <script src="lib/jquery.min.js"></script>
+		 <script src="lib/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="carousel slide" id="myCarousel">
+				<!--轮播指标-->
+					<ol class="carousel-indicator">
+						<li class="active" data-target="#myCarousel" data-slide-to="0"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+					</ol>
+				<!--轮播项目-->
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="img/slide1.png" alt=""/>
+						</div>
+						<div class="item">
+							<img src="img/slide2.png" alt=""/>
+						</div>
+						<div class="item">
+							<img src="img/slide3.png"/>
+						</div>
+					</div>
+				<!--轮播导航-->
+					<a class="carousel-control left" href="#myCarousel" data-slide="prev">&laquo;</a>
+					<a class="carousel-control right" href="#myCarousel" data-slide="next">&raquo;</a>
+				<!--按钮组-->
+					<div style="text-align:center">
+						<button type="button" class="btn btn-primary start-slide">开始</button>
+						<button type="button" class="btn btn-primary pause-slide">暂停</button>
+						<button type="button" class="btn btn-primary prev-slide">上一页</button>
+						<button type="button" class="btn btn-primary next-slide">下一页</button>
+						<button type="button" class="btn btn-primary slide-one">第一页</button>
+						<button type="button" class="btn btn-primary slide-two">第二页</button>
+						<button type="button" class="btn btn-primary slide-three">第三页</button>
+					</div>
+			</div>
+		<div>
+		<script>
+			$(function()
+			{
+				$(".start-slide").click(function()
+				{
+					$("#myCarousel").carousel("cycle")
+				});
+				$(".pause-slide").click(function()
+				{
+					$("#myCarousel").carousel("pause")
+				});
+				$(".prev-slide").click(function()
+				{
+					$("#myCarousel").carousel("prev")
+				});
+				$("next-slide").click(function()
+				{
+					$("#myCarousel").carousel("next")
+				});
+				$(".slide-one").click(function()
+				{
+					$("#myCarousel").carousel(0)
+				});
+				$(".slide-one").click(function()
+				{
+					$("#myCarousel").carousel(1)
+				});
+				$(".slide-one").click(function()
+				{
+					$("#myCarousel").carousel(2)
+				});
+			})
+		</script>
+	</body>
+</html>

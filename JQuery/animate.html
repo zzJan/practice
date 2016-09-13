@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>动画</title>
+		<script src="jquery.js"></script>
+		<script>
+				$(document).ready(function()
+				{
+					//将元素往右移500px
+					$("#btn1").click(function()
+					{
+						$("#div1").animate({left:"500px"}, 500);
+					});
+					//将元素往右移动250px，透明度为0.5，高度和宽度为150px
+					$("#btn2").click(function()
+					{
+						$("#div2").animate(
+						{
+							left:"500px",
+							opacity:"0.5",
+							height:"150px",
+							width:"150px"
+						}, 500);
+					});
+					//将元素往右移500px，高度和宽度设置为比原来大150px
+					$("#btn3").click(function()
+					{
+						$("#div3").animate(
+						{
+							left:"500px",
+							height:"+=150px",
+							width:"+=150px"
+						}, 500);
+					});
+					//将元素的高度设置为点击为0px，再点击变回原来的宽度
+					$("#btn4").click(function()
+					{
+						$("#div4").animate({height:"show"}, 500);
+					});
+					$("#btn5").click(function()
+					{
+						$("#div4").animate({height:"hide"}, 500);
+					});
+					$("#btn6").click(function()
+					{
+						$("#div4").animate({height:"toggle"}, 500)
+					});
+					//执行4个动画，首先高度为300px，透明度为0.4，然后宽度为300px，透明度为0.8，然后高度为100px，透明度为0.4，最后宽度为100px，透明度为1
+					$("#btn7").click(function()
+					{
+						$("#div5").animate({height:"300px", opacity:"0.4"}, 500);
+						$("#div5").animate({width:"300px", opacity:"0.8"}, 500);
+						$("#div5").animate({height:"100px", opacity:"0.4"}, 500);
+						$("#div5").animate({width:"100px", opacity:"1"}, 500);
+					});
+					//执行2个动画，首先往右移300px，最后字号为20px
+					$("#btn8").click(function()
+					{
+						$("#div6").animate({left:"300px"}, 500);
+						$("#p1").animate({fontSize:"30px"}, 500);
+					});
+				});
+		</script>
+
+		<style type="text/css">
+			div {
+				width:100px;
+				height:100px;
+				background-color:green;
+				position:relative;
+			}
+		</style>
+	</head>
+	<body>
+		<p>设置animate时，需要将元素的position设置成fixed, absolute, relative</p><hr/>
+		<div id="div1"></div><button type="button" id="btn1">点击开始动画</button><hr/>
+		<div id="div2"></div><button type="button" id="btn2">点击开始动画</button><hr/>
+		<div id="div3"></div><button type="button" id="btn3">点击开始动画</button><hr/>
+		<div id="div4"></div>
+		<button type="button" id="btn4">显示</button>
+		<button type="button" id="btn5">隐藏</button>
+		<button type="button" id="btn6">toggle</button><hr/>
+		<div id="div5"></div><button type="button" id="btn7">点击开始动画</button><hr/>
+		<div id="div6">
+			<p id="p1">变大！变大！</p>
+		</div>
+		<button type="button" id="btn8">点击开始动画</button><hr/>
+	</body>
+</html>

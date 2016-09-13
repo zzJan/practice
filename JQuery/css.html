@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>设置和返回css样式</title>
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				$("#btn1").click(function()
+				{
+					$("#result").text($("#p1").css("background-color"));
+				});
+
+				$("#btn2").click(function()
+				{
+					$("#p1").css({"fontSize":"30px","color":"red","backgroundColor":"white"});
+				});
+
+				$("#btn3").click(function()
+				{
+					$("#result").text("background-color:" + $("#p1").css("background-color") + " font-size:" + $("#p1").css("font-size") + " color:" + $("#p1").css("color"));
+				});
+			})
+		</script>
+
+		<style type="text/css">
+			p#p1 {
+				background-color:#888;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button" id="btn1">点击返回p1的样式</button>
+		<button type="button" id="btn2">点击改变p1的样式</button>
+		<button type="button" id="btn3">点击返回p1新的样式</button>
+		<p id="p1">今天又雾霾了</p>
+		<p id="result">返回上面段落的css样式</p>
+	</body>
+</html>

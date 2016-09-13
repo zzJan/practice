@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>对象</title>
+		<script>
+			function test1()
+			{
+				var string = "javascript";
+				document.getElementById("result").innerHTML = "这个String对象的长度为"+string.length+",其中，字符's'的位置为"+string.indexOf("s")+",其中字符'ava'的位置为"+string.search("ava")+"如果将string的所有'a'改成'1'"+"就会变成"+string.replace(/a/g,"1");
+			}
+		</script>
+	</head>
+	<body onload="test1()">
+		<p>在JavaScript中所有事物都是对象，比如一个String的值为"javascript",那么</p>
+		<p id="result"></p>
+	</body>
+</html>

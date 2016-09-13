@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title></title>
+		<script src="jquery-3.0.0.min.js"></script>
+	</head>
+	<body>
+		<p id="result"></p>
+		<script>
+			var p = document.getElementById('result');
+			var jqxhr = $.ajax('file.txt', {
+				dataType: 'json'
+			}).done(function(data) {
+				p.textContent = JSON.parse(data)
+			}).fail(function(xhr, status) {
+				p.textContent = `fail: ${xhr.status}, reason: ${status}`
+			}).alaways(function() {
+				document.body.appendChild('<p>alaways show</p>')
+			})
+		</script>
+	</body>
+</html>

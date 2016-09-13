@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>表格</title>
+		<style type="text/css">
+			thead td {font:bold 20px "宋体" ; text-align:center ; padding:5px}
+			tbody td {font:lighter 14px "Ariel" ; text-align:center ; padding:5px}
+			tfoot td {font:bold 20px "serif" ; text-align:center ; padding:5px}
+		</style>
+	</head>
+	<body>
+		<h3>表头(th)</h3><br/>
+		<h4>水平的表头</h4>
+		<table border="1">
+			<tr>
+				<th>姓名</th>
+				<th>电话</th>
+				<th>地址</th>
+			</tr>
+			<tr>
+				<td>麦当劳</td>
+				<td>4008-517-517</td>
+				<td>广州市</td>
+			</tr>
+			<tr>
+				<td>必胜客</td>
+				<td>4008-123-123</td>
+				<td>深圳市</td>
+			</tr>
+		</table><br/>
+		<h4>垂直的表头</h4>
+		<table border="1">
+			<tr>
+				<th>姓名</th>
+				<td>麦当劳</td>
+				<td>必胜客</td>
+			</tr>
+			<tr>
+				<th>电话</th>
+				<td>4008-517-517</td>
+				<td>4008-123-123</td>
+			</tr>
+			<tr>
+				<th>地址</th>
+				<td>广州市</td>
+				<td>深圳市</td>
+			</tr>
+		</table><br/>
+		<hr/>
+		<h3>空单元格</h3><br/>
+		<table border="1">
+			<tr>
+				<td>123</td>
+				<td>456</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>789</td>
+			</tr>
+		</table><br/>
+		<hr/>
+		<h3>带有标题的表格</h3>
+		<table border="5">
+			<caption>通讯录</caption>
+			<tr>
+				<th>姓名</th>
+				<td>麦当劳</td>
+				<td>必胜客</td>
+			</tr>
+			<tr>
+				<th>电话</th>
+				<td>4008-517-517</td>
+				<td>4008-123-123</td>
+			</tr>
+			<tr>
+				<th>地址</th>
+				<td>广州市</td>
+				<td>深圳市</td>
+			</tr>
+		</table><br/>
+		<hr/>
+		<h3>合并单元格</h3>
+		<h4>跨列的表格(rowspan)</h4>
+		<table border="1">
+			<tr>
+				<th>姓名</th>
+				<th>电话</th>
+				<th>地址</th>
+				<th>备注</th>
+			</tr>
+			<tr>
+				<td>麦当劳</td>
+				<td>4008-517-517</td>
+				<td>广州市</td>
+				<td rowspan="2">&nbsp;</td>
+			</tr>
+			<tr>
+				<td>必胜客</td>
+				<td>4008-123-123</td>
+				<td>深圳市</td>
+			</tr>
+		</table><br/>
+		<h4>跨行的表格(colspan)</h4>
+		<table border="1">
+			<tr>
+				<th>姓名</th>
+				<td>麦当劳</td>
+				<td>必胜客</td>
+			</tr>
+			<tr>
+				<th>电话</th>
+				<td>4008-517-517</td>
+				<td>4008-123-123</td>
+			</tr>
+			<tr>
+				<th>地址</th>
+				<td>广州市</td>
+				<td>深圳市</td>
+			</tr>
+			<tr>
+				<th>备注</th>
+				<td colspan="2">&nbsp;</td>
+			</tr>
+		</table><br/>
+		<hr/>
+		<h3>更改单元格内容与其边框之间的空白(cellpadding)</h3><br/>
+		<table border="1" cellpadding="5">
+			<tr>
+				<th>姓名</th>
+				<td>麦当劳</td>
+				<td>必胜客</td>
+			</tr>
+			<tr>
+				<th>电话</th>
+				<td>4008-517-517</td>
+				<td>4008-123-123</td>
+			</tr>
+			<tr>
+				<th>地址</th>
+				<td>广州市</td>
+				<td>深圳市</td>
+			</tr>
+			<tr>
+				<th>备注</th>
+				<td colspan="2">&nbsp;</td>
+			</tr>
+		</table><br/>
+		<hr/>
+		<h3>更改单元格之间的空白(cellspacing)</h3><br/>
+		<table border="1" cellspacing="5">
+			<tr>
+				<th>姓名</th>
+				<td>麦当劳</td>
+				<td>必胜客</td>
+			</tr>
+			<tr>
+				<th>电话</th>
+				<td>4008-517-517</td>
+				<td>4008-123-123</td>
+			</tr>
+			<tr>
+				<th>地址</th>
+				<td>广州市</td>
+				<td>深圳市</td>
+			</tr>
+			<tr>
+				<th>备注</th>
+				<td colspan="2">&nbsp;</td>
+			</tr>
+		</table><br/>
+		<hr/>
+		<h3>给表格指定位置标签，方便使用css改变样式(thead、tbody、tfoot)</h3>
+		<table border="1">
+			<thead>
+				<tr>
+					<td>消费项目</td>
+					<td>一月</td>
+					<td>二月</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>衣服</td>
+					<td>￥100</td>
+					<td>￥100</td>
+				</tr>
+				<tr>
+					<td>化妆品</td>
+					<td>￥400</td>
+					<td>￥200</td>
+				</tr>
+				<tr>
+					<td>食品</td>
+					<td>￥700</td>
+					<td>￥300</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>总计</td>
+					<td>￥200</td>
+					<td>￥600</td>
+				</tr>
+			</tfoot>
+		</table><br/>
+		<hr/>
+		<h3>只显示某一边的边框线(frame(table))</h3>
+		<table frame="above">
+				<tr>
+					<td>消费项目</td>
+					<td>一月</td>
+					<td>二月</td>
+				</tr>
+				<tr>
+					<td>衣服</td>
+					<td>￥100</td>
+					<td>￥100</td>
+				</tr>
+				<tr>
+					<td>化妆品</td>
+					<td>￥400</td>
+					<td>￥200</td>
+				</tr>
+				<tr>
+					<td>食品</td>
+					<td>￥700</td>
+					<td>￥300</td>
+				</tr>
+				<tr>
+					<td>总计</td>
+					<td>￥200</td>
+					<td>￥600</td>
+				</tr>
+		</table><br/>
+		<hr/>
+		<h3>将表头数据和单元数据相关联(scope(td))</h3>
+		<table frame="box">
+				<tr>
+					<td scope="col">消费项目</td>
+					<td scope="col">一月</td>
+					<td scope="col">二月</td>
+				</tr>
+				<tr>
+					<td scope="row">衣服</td>
+					<td>￥100</td>
+					<td>￥100</td>
+				</tr>
+				<tr>
+					<td scope="row">化妆品</td>
+					<td>￥400</td>
+					<td>￥200</td>
+				</tr>
+				<tr>
+					<td scope="row">食品</td>
+					<td>￥700</td>
+					<td>￥300</td>
+				</tr>
+				<tr>
+					<td>总计</td>
+					<td>￥200</td>
+					<td>￥600</td>
+				</tr>
+		</table>
+	</body>
+</html>

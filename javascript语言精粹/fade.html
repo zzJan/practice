@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>测试</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="UTF-8">
+		
+	</head>
+	<body>
+		<div id="start">
+			<div></div>
+			<div>
+				<p></p>
+				<div>
+					<p><span><i></i></span></p>
+				</div>
+			</div>
+		</div>
+		<div></div>
+		<script>
+			function fade(node) {
+				let level = 1
+				var step = function () {
+					let hex = level.toString(16)
+					node.style.backgroundColor = '#FFFF' + hex + hex
+					if(level<15) {
+						level ++
+						setTimeout(step, 100)
+					}
+				}
+				setTimeout(step, 100)
+			}
+			fade(document.body)
+			// console.log(show(5)())
+		</script>
+		
+	</body>
+</html>

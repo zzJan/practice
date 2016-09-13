@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>测试</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="UTF-8">
+		
+	</head>
+	<body>
+		<div id="start">
+			<div></div>
+			<div>
+				<p></p>
+				<div>
+					<p><span><i></i></span></p>
+				</div>
+			</div>
+		</div>
+		<div></div>
+		<script>
+			String.prototype.deentityify = function() {
+				let entity = {
+					quto: '"',
+					lt: '<',
+					gt: '>',
+					nbsp: ' ',
+					copy: '©',
+					reg: '®'
+				}
+				var trans = this.replace(/&([^&;]+);/g, function(a, b) {
+					// console.log(a)
+					// console.log(b)
+					let r = entity[b]
+					return typeof r === 'string' ? r : a 
+				})
+				return trans
+			}
+			var a = String.prototype.deentityify.call('&quto;&lt;&gt;&aa;')
+			console.log(a)
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>测试</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div id="start">
+			<a href="#">测试</a>
+		</div>
+		<div></div>
+		<script>
+
+		function Parent(name) {
+			this.name = name
+		}
+
+		Parent.prototype.show = function() {
+			return `${this.name}`
+		}
+
+		function inherit(parent, child) {
+			var f = function(){};
+			f.prototype = parent.prototype;
+			child.prototype = new f();
+			child.prototype.constructor = child;
+		}
+
+		function Child(name, age) {
+			Parent.call(this, name)
+			this.age = age;
+		}
+		// inherit(Parent, Child)
+
+		var p = new Parent('ada');
+		var c = new Child('boo', 55);
+		console.log(c.show())
+		// console.log(window.a)
+		// console.log(window.b)
+		// console.log(window.c)
+		// console.log(window.d)
+		</script>
+		
+	</body>
+</html>

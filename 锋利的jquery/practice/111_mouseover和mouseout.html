@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>事件</title>
+		<script src="../jquery.js"></script>
+		<script>
+		//页面载入事件
+			function one()
+			{
+				alert("one");
+			};
+
+			function two()
+			{
+				alert("two");
+			}
+			//能提示两个警告框
+				/**
+				$(function()
+				{
+					one();
+					two();
+				});
+				*/
+			//只能提示一个警告框
+				//window.onload = one;
+				//window.onload = two;
+			//新建函数来提示两个警告框
+				/**
+				window.onload = function()
+				{
+					one();
+					two();
+				};
+				*/
+		//元素绑定事件
+			/**
+			$(function()
+			{
+				$("h5").bind("mouseover", function()
+				{
+					$content = $(this).next();
+					if($content.is(":visible"))
+					{
+						$content.fadeOut();
+					}
+					else
+					{
+						$content.fadeIn();
+					}
+				})
+			})
+			*/
+		//hover()方法，包含两个函数，第一个表示mouseenter，第二个表示mouseleave
+			$(function()
+			{
+				$content = $("h5").next();
+				$("h5").hover(function()
+				{
+					$content.show();
+				}
+				,function()
+				{
+					$content.hide();
+				});
+				
+			})
+		</script>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<h5>早上好</h5>
+		<div style="display:none;">吃早餐吃早餐吃早餐吃早餐吃早餐吃早餐吃早餐吃早餐吃早餐吃早餐吃早餐吃早餐吃早餐吃早餐吃早餐</div>
+	</body>
+</html>

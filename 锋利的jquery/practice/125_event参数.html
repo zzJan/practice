@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>事件</title>
+		<script src="../jquery.js"></script>
+		<script>
+			$(function()
+			{
+				/**
+				$("*").mouseenter(function(event)
+				{
+					$("#result").append("<p>鼠标进入或离开了："+event.relatedTarget.nodeName+"</p>");
+														//5、event.relatedTarget.nodeName能返回鼠标进入或离开哪个DOM节点
+				})
+				*/
+
+				$("html").mousemove(function(event)
+				{
+					$("#mouse_x").text(event.pageX);		//6、通过event.pageX和event.pageY获取鼠标相对于窗口的位置
+					$("#mouse_y").text(event.pageY);
+				})
+
+				$("html").click(function(event)
+				{
+					$("#result").append("<p>你刚才点的是："+event.which+"键</p>");
+															//7、event.which返回按键1、2、3表示左键，中键，右键
+				})
+
+				$("html").keyup(function(event)
+				{
+					$("#result").append("<p>你刚才按下了"+event.which+"</p>");
+															//7、event.which也可以返回键盘按键
+				})
+
+				$("div button").click(function(event)		
+				{
+					$("#result").append($("<p>event的类型是"+event.type+"</p>"));		//1、event.type能够返回触发事件的类型
+					event.stopPropagation();		//3、event.stopPropagation能阻止事件冒泡
+				});
+				
+				$("div a").click(function(event)
+				{
+					$("#result").append($("<p>该超链接的跳转地址是："+event.target+"</p>"))		//4、event.target能返回跳转地址
+					event.preventDefault();		//2、event.preventDefault能阻止默认的行为，比如跳转，也能用return false代替
+				})
+
+				$("div").click(function(event)
+				{
+					$("#result").append($("<p>div元素被点击</p>"));
+				})
+
+				$("body").click(function()
+				{
+					$("#result").append($("<p>body元素被点击</p>"));
+				})
+			})
+		</script>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div>
+			<button type="button"><span>点击这里</span></button>
+			<a href="http://www.baidu.com/">跳转到百度</a>
+		</div>
+
+		<div id="result" style="border:1px solid">
+			<p id="mousePosition">当前鼠标的位置  X:<span id="mouse_x"></span>  Y:<span id="mouse_y"></span></p>	
+			结果是：
+		</div>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>删除</title>
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				$("#btn1").click(function()
+				{
+					$("#div1").remove();
+				});
+
+				$("#btn2").click(function()
+				{
+					$("#div1").empty();
+				});
+
+				$("#btn3").click(function()
+				{
+					$("p").remove(".c1");
+				});
+			});
+		</script>
+
+		<style type="text/css">
+			div {
+				background-color:#888;
+				border:1px solid #666;
+				height:500px;
+				width:500px;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button" id="btn1">删除id为div1的元素</button>
+		<button type="button" id="btn2">清空div内的所有元素</button>
+		<button type="button" id="btn3">删除p内所有属于c1类的元素</button>
+		<div id="div1">
+			<p class="c1">字字吱吱吱吱吱吱吱</p>
+			<p class="c1">字字吱吱吱吱吱吱吱</p>
+			<p>字字吱吱吱吱吱吱吱</p>
+		</div>
+	</body>
+</html>

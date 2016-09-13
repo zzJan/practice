@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>事件</title>
+		<script src="../jquery.js"></script>
+		<script>
+			$(function()
+			{
+				//在每一个必须填写的表单后面加星号
+				$("form :input.required").each(function()
+				{
+					$(this).parent().append($("<strong class='high'>*</strong>"));
+				});
+				//失去焦点时验证表单
+				//用户名
+				$("#username").blur(function()
+				{
+					if(this.value=="" || this.value.length<6)
+					{
+						var errorMsg = "请输入6位的用户名";
+						if($(this).parent().has("span"))
+						{
+							$(this).siblings("span").remove();
+						};
+						$(this).parent().append($("<span class='error'>" +errorMsg+ "</span>"));
+					}
+					else 
+					{
+						var okMsg = "输入正确";
+						if($(this).parent().has("span"))
+						{
+							$(this).siblings("span").remove()
+						};
+						$(this).parent().append($("<span class='success'>" +okMsg+"</span>"));
+					}
+				})
+				.keyup(function()
+				{
+					$(this).triggerHandler("blur");
+				})
+				.focus(function()
+				{
+					$(this).triggerHandler("blur");
+				});
+
+				//密码
+				$("#password").blur(function()
+				{
+					if(this.value=="" || this.value.length<6)
+					{
+						var errorMsg = "请输入6位的密码";
+						if($(this).parent().has("span"))
+						{
+							$(this).siblings("span").remove();
+						}
+						$(this).parent().append($("<span class='error'>" +errorMsg+"</span>"));
+					}
+					else
+					{
+						var okMsg = "输入正确";
+						if($(this).parent().has("span"))
+						{
+							$(this).siblings("span").remove();
+						}
+						$(this).parent().append($("<span class='success'>" +okMsg+"</span>"));
+					}
+				})
+				.keyup(function()
+				{
+					$(this).triggerHandler("blur");
+				})
+				.focus(function()
+				{
+					$(this).triggerHandler("blur");
+				});
+				
+				//邮箱
+				$("#email").blur(function()
+				{
+					if(this.value=="" || (this.value!="" && !/.+@.+\.[a-zA-Z] {2,4}$/.test(this.value)))
+					{
+						var errorMsg = "请输入正确的邮箱";
+						$(this).parent().find("span").remove();
+						$(this).parent().append($("<span class='error'>" +errorMsg+ "</span>"));
+					}
+					else
+					{
+						var okMsg = "邮箱正确";
+						$(this).parent().find("span").remove();
+						$(this).parent().append($("<span class='success'>" +okMsg+ "</span>"))
+					}
+				})
+				.keyup(function()
+				{
+					$(this).triggerHandler("blur");
+				})
+				.focus(function()
+				{
+					$(this).triggerHandler("blur");
+				});
+
+				$("#submit").click(function()
+				{
+					$("form :input.required").trigger("blur");
+					var $num = $("span.error").length;
+					if($num)
+					{
+						return false;
+					}
+					else
+					{
+						alert("注册成功!");
+					}
+				})
+			})
+		</script>
+		<style type="text/css">
+			.high, .error {
+				color:red;
+			}
+			.success {
+				color:green;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<form method="post">
+				<div class="int">
+					<label for="username">用户名：</label>
+					<input type="text" size="20" id="username" class="required"/>
+				</div>
+				<div class="int">
+					<label for="password">密码：</label>
+					<input type="password" size="20" id="password" class="required"/>
+				</div>
+				<div class="int">
+					<label for="email">电子邮箱：</label>
+					<input type="text" id="email" size="20" class="required"/>
+				</div>
+				<div class="sub">
+					<input type="submit" value="提交" id="submit"/>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

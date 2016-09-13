@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>品牌列表效果</title>
+		<script src="../jquery.js"></script>
+		<script>
+			$(function()
+			{
+				var x = 20;
+				var y = 10;
+				$("a.tooltip").mouseover(function(event)
+				{
+					this.myTitle = this.title;		//获取title属性
+					this.title = "";				//清空原来的title，防止出现两个悬浮框
+					if(this.href.match(/.jpg/g))	//鉴别是图片还是文字
+					{
+						$tooltip = $("<div id='tooltip'><img src='"+this.href+"'/><br/>"+this.myTitle+"</div>");
+					}
+					else
+					{
+						$tooltip = $("<div id='tooltip' style='border:1px solid'>"+this.myTitle+"</div>");
+					}
+					$("body").append($tooltip);		//向body插入悬浮框
+					$tooltip.css(
+					{
+						"position":"absolute",
+						"display":"inline-block",
+						"top":(event.pageY + y) + "px",
+						"left":(event.pageX + x) + "px",
+						"background":"#fff",
+						"font-size":"12px"
+					}).show("fast");
+				});
+
+				$("a.tooltip").mouseout(function(event)
+				{
+					this.title = this.myTitle;		//重新赋回title属性
+					$("#tooltip").remove();			//移除悬浮框
+				});
+
+				$("a.tooltip").mousemove(function(event)		//使得悬浮框能跟着鼠标移动
+				{
+					$("#tooltip").css(
+					{
+						"top":(event.pageY + y) + "px",
+						"left":(event.pageX + x) + "px"
+					});
+				})
+			})
+		</script>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<p><a href="#" class="tooltip" title="超链接提示">超链接</a></p>
+		<div class="div-img">
+			<ul style="list-style:none">
+				<li style="display:inline-block;height:150px;width:150px;">
+					<a href="img/098627b8c31bb38447352c715ae13148.jpg" class="tooltip" title="iphone 4s">
+						<img src="img/098627b8c31bb38447352c715ae13148.jpg" alt="4s" style="max-width:100%"/>
+					</a>
+				</li>
+				<li style="display:inline-block;height:150px;width:150px;">
+					<a href="img/c5557fd63e8fb5650a8d39a76b534bb0.jpg" class="tooltip" title="iphone 5">
+						<img src="img/c5557fd63e8fb5650a8d39a76b534bb0.jpg" alt="5" style="max-width:100%"/>
+					</a>
+				</li>
+				<li style="display:inline-block;height:150px;width:150px;">
+					<a href="img/a54bfd3a6ee3a267420a631e42a0d533.jpg" class="tooltip" title="iphone 6">
+						<img src="img/a54bfd3a6ee3a267420a631e42a0d533.jpg" alt="6" style="max-width:100%"/>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

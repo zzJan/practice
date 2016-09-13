@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>&lt;form&gt;和&lt;input&gt;标签的综合应用</title>
+	</head>
+	<body>
+		<h3>一个普通的表单</h3>
+		<h4>method="get" URL会显示?username=&password=</h4>
+			<form action="result.html" autocomplete enctype method="get" target="_blank">
+				用户名:<input type="text" size="20" autofocus="autofocus" name="username"/><br/>
+				密码:<input type="password" size="20" name="password"/><br/>
+				<input type="submit" value="注册"/>
+			</form><br/>
+		<h4>method="post"</h4>
+			<form action="result.html" autocomplete method="post" target="_blank">
+				用户名:<input type="text" size="20" name="username"/><br/>
+				密码:<input type="password" size="20" name="password"/><br/>
+				<input type="submit" value="注册"/>
+			</form><br/>
+		<h4>在数据周围绘制一个带标题的框</h4>
+			<form>
+				<fieldset>
+					<legend>体检表</legend>
+					身高<input type="text"/>体重<input type="text"/>BMI<input type="text"/>
+				</fieldset>
+			</form>
+		<hr/>
+		<h3>input标签的种类、select标签</h3>
+		<h4>一个普通的注册表单</h4>
+			<form action="result.html" method="get" target="_blank">
+				用户名:<input type="text" size="20" name="username" autofocus="autofocus"								placeholder="请输入用户名" required/><br/>
+				密码:<input type="password" size="20" name="password" required/><br/>
+				性别:<input type="radio" name="sex" value="man" checked/>男&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="sex" value="female"/>女<br/>
+				爱好:<input type="checkbox" name="habit" value="basketball"/>篮球&nbsp;&nbsp;
+					<input type="checkbox" name="habit" value="football"/>足球&nbsp;&nbsp;
+					<input type="checkbox" name="habit" value="tennis"/>乒乓球&nbsp;&nbsp;
+					<input type="checkbox" name="habit" value="badminton"/>羽毛球&nbsp;&nbsp;
+					<input type="checkbox" name="habit" value="jog"/>慢跑&nbsp;&nbsp;
+					<input type="checkbox" name="habit" value="sing"/>唱歌<br/>
+				头像:<input type="file" name="pic" accept="image/*"/><br/>
+				添加相册图片&nbsp;&nbsp;<input type="file" multiple="multiple" accept="image/*"								name="photo"/><br/>
+				地址<select name="province">
+						<option value="guangdong"/>广东
+					</select>省
+					<select name="city">
+						<option value="guangzhou"/>广州
+						<option value="shenzhen"/>深圳
+						<option value="yangjiang"/>阳江
+						<option value="huizhou"/>惠州
+					</select>市<br/>
+				输入邀请码:<input type="text" size="20" disabled="disabled" placeholder="此功能已关闭"/><br/>
+					此处有hidden属性的input标签,即使reset数据也不会消失
+					<input type="hidden" name="country" value="China"/><br/>
+				<input type="image" src="../img/eg_submit.jpg" alt="submit"/>&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="reset" value="重置数据"/>
+			</form>
+		<br/>
+		<hr/>
+		<h3>select</h3>
+		<h4>select标签和option标签的使用</h4>
+			<select>
+				<option value="guangzhou">广州
+				<option value="shenzhen"/>深圳
+				<option value="zhaoqing" selected/>肇庆
+				<option value="zhanjiang"/>湛江
+			</select><br/>
+		<h4>select标签和optgroup标签和option标签的使用</h4>
+		灵长目<select>
+				<optgroup label="原猴亚目">
+					<option value="鼠狐猴科"/>鼠狐猴科
+					<option value="狐猴科"/>狐猴科
+					<option value="嬉猴科"/>嬉猴科
+					<option value="大狐猴科"/>大狐猴科
+					<option value="指猴科"/>指猴科
+					<option value="懒猴科"/>懒猴科
+					<option value="婴猴科"/>婴猴科
+				</optgroup>
+				<optgroup label="简鼻亚目(类人猿亚目)">
+					<option value="眼镜猴科"/>眼镜猴科
+					<option value="卷尾猴科"/>卷尾猴科
+					<option value="青猴科"/>青猴科
+					<option value="僧面猴科"/>僧面猴科
+					<option value="蜘蛛猴科"/>蜘蛛猴科
+					<option value="猴科"/>猴科
+					<option value="长臂猿科"/>长臂猿科
+					<option value="猩猩科"/>猩猩科
+					<option value="人科"/>人科
+				</optgroup>
+			</select>
+		<br/>
+		<hr/>
+		<h3>button</h3>
+			<button type="button">click!</button>
+			<button type="submit">submit</button>
+			<button type="reset">reset</button>
+		<br/>
+		<hr/>
+		<h3></h3>
+		<h4></h4>
+		<br/>
+		<hr/>
+		<h3></h3>
+		<h4></h4>
+		<br/>
+		<hr/>
+		<h3></h3>
+		<h4></h4>
+		<br/>
+		<hr/>
+		<h3></h3>
+		<h4></h4>
+		<br/>
+		<hr/>
+		<h3></h3>
+		<h4></h4>
+		<br/>
+		<hr/>
+		<h3></h3>
+		<h4></h4>
+		<br/>
+		<hr/>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>HelloJavascript</title>
+	</head>
+	<body>
+		<script>
+			document.write("<h1>Hello Javascript</h1><br/>");
+			function myFunction() 
+			{
+				x = document.getElementById("p1");	//查找元素
+				x.innerHTML = "一段已经被改变的文本123456789";	//更改元素
+			}
+
+			function changeImage() 
+			{
+				element = document.getElementById("bulb");
+				if(element.src.match("bulboff"))
+				{
+					element.src = "img/eg_bulbon.gif";
+				}
+				else
+				{
+					element.src = "img/eg_bulboff.gif";
+				}
+			}
+
+			function changeColor()
+			{
+				x = document.getElementById("p2");
+				x.style.color = "red";
+			}
+			function check()
+			{
+				var x = document.getElementById("text1");
+				if(x=="" || isNaN(x))
+				{
+					alert("请输入一个数字！！");
+				}
+			}
+		</script>
+		<button type="button" onclick="alert('欢迎使用javaScript')">点击欢迎</button>
+		<br/><hr/>
+		<p id="p1">一段可以改变的文本</p><br/>
+		<button type="button" onclick="myFunction()">点击改变文本</button>
+		<br/><hr/>
+		<img id="bulb" src="img/eg_bulboff.gif" alt="灯泡" onclick="changeImage()"/>
+		<p>↑↑↑↑↑↑↑<br/>点击开灯，点击关灯</p>
+		<br/><hr/>
+		<p id="p2">一段会变色的文本</p><br/>
+		<button type="button" onclick="changeColor()">点击改变颜色</button><br/>
+		<input type="button" value="点击" onclick="changeColor()"/>←使用input标签也可以
+		<br/><hr/>
+		<input type="text" id="text1"/><input type="button" value="点击检验" onclick="check()"/> ←点击按钮检验文本框是否输入了数字
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>添加和删除类</title>
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				$("#btn1").click(function()
+				{
+					$("h1").addClass("important");
+					$("p").addClass("blue");
+				})
+				
+				$("#btn2").click(function()
+				{
+					$("h1").removeClass("important");
+					$("p").removeClass("blue");
+				})
+
+				$("#btn3").click(function()
+				{
+					$("h1").toggleClass("important");
+					$("p").toggleClass("blue");
+				})
+			})
+		</script>
+
+		<style type="text/css">
+			h1.important {
+				color:red;
+			}
+			p.blue {
+				color:blue;
+				background-color:yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button" id="btn1">点击将h1添加到important类，p加入blue类</button>
+		<button type="button" id="btn2">点击将h1从important类和p从blue类移除</button>
+		<button type="button" id="btn3">点击将h1添加/移除到important类,p添加/移除到blue类</button>
+		<h1>这是一段文字</h1>
+		<h1>这是另一段文字</h1>
+		<h2>这是第三段文字</h2>
+		<p>这不是文字</p>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>测试</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="UTF-8">
+		
+	</head>
+	<body>
+		<div id="start">
+			<div></div>
+			<div>
+				<p></p>
+				<div>
+					<p><span><i></i></span></p>
+				</div>
+			</div>
+		</div>
+		<div></div>
+		<script>
+			String.prototype.trimSplit = function(seperator, limit) {
+				return this.replace(/^(\s*)|(\s*)$/g, '').split(seperator, limit)
+			}
+			console.log('   4 56 465 456 456 465 465 465 465 465 465 4'.trimSplit(' '))
+		</script>
+		
+	</body>
+</html>

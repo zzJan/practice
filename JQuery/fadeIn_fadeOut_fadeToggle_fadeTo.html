@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>淡入淡出</title>
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				$("#click_p").click(function()
+				{
+					$("#bottom").fadeToggle(500);
+				});
+
+				$("#fadeIn").click(function()
+				{
+					$("#bottom").fadeIn(500);
+				});
+
+				$("#fadeOut").click(function()
+				{
+					$("#bottom").fadeOut(500);
+				});
+
+				$("#fadeTo").click(function()
+				{
+					$("#bottom").fadeTo(500, 0.5);
+				});
+			});
+		</script>
+
+		<style type="text/css">
+			div {
+				width:400px;
+				border:1px solid #c3c3c3;
+				background-color:rgb(229, 238, 204);
+			}
+			p {
+				font-size:12px;
+				text-align:center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="up">
+				<p id="click_p">点击淡入/淡出面板</p>
+			</div>
+			<div id="bottom">
+				<p>一寸光阴一寸金，因此，我们为您提供快捷易懂的学习内容。</p>
+				<p>在这里，您可以通过一种易懂的便利的模式获得您需要的任何知识。</p>
+			</div>
+		</div>
+		<button type="button" id="fadeIn">淡入</button>
+		<button type="button" id="fadeOut">淡出</button>
+		<button type="button" id="fadeTo">淡化成50%</button>
+	</body>
+</html>

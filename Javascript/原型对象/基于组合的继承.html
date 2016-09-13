@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>测试</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="ContentType" content="text/html" charset="UTF-8">
+		<style>
+		</style>
+	</head>
+	<body>
+		<p>
+		</p>
+		<script>
+			function Parent(name)
+			{
+				this.friends = ["x", "y"];
+				this.name = name;
+			}
+			Parent.prototype.show = function()
+			{
+				console.log(this.name + "," + this.age + "," + this.friends);
+			}
+			function Child(name, age)
+			{
+				Parent.call(this, name);
+				this.age = age;
+			}
+			Child.prototype = new Parent();
+			var c1 = new Child("a", 22);
+			var c2 = new Child("b", 33);
+			c2.friends.push("z");
+			c2.show();
+			c1.show();
+			//console.log(this.name + "," + this.age + "," + this.friends)
+		</script>
+	</body>
+</html>

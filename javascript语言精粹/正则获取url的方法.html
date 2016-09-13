@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>测试</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="UTF-8">
+		
+	</head>
+	<body>
+		<div id="start">
+			<div></div>
+			<div>
+				<p></p>
+				<div>
+					<p><span><i></i></span></p>
+				</div>
+			</div>
+		</div>
+		<div></div>
+		<script>
+			String.prototype.analyURL  = function(url) {
+				let rule = /^(?:(http|ftp|https):)?(\/{2,3})([0-9.\-A-Za-z]+)(?::(\d{1,5}))?(?:\/([^?#\\\s]*))?(?:\?([^#\\\s]*))?(?:#(.*))?$/,
+					name = ['url', 'scheme', 'slash', 'host', 'port', 'path', 'query', 'hash'],
+					obj = {}
+				let result = rule.exec(url)
+				name.forEach((v,i) => {
+					obj[v] = result[i]
+				})
+				return JSON.stringify(obj, null, ' ')
+			}
+
+			console.log(String.prototype.analyURL.call(null, 'https://www.baidu.com:80/s?wd=%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F&rsv_spt=1#somewhere'))
+		</script>
+		
+	</body>
+</html>

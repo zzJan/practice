@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>数组对象</title>
+	</head>
+	<body>
+		<p id="p1">显示结果</p>
+		<button onclick="for1(cars)">点击运行遍历cars数组的方法</button>
+		<button onclick="for1(names)">点击运行遍历names数组的方法</button>
+		<button onclick="for2(names, cars)">点击运行遍历cars和names合并后的数组的方法</button>
+		<button onclick="var cars=new Array('Benz', 'Honda', 'Rover'); document.getElementById('p1').innerHTML=cars.join()">点击直接使用内置的join()函数输出cars数组</button><br/>
+		<button onclick="push(cars, 'Tesla')">点击往cars数组添加"Tesla"元素</button>
+		<button onclick="pop(cars)">点击删除cars数组的最后一个元素</button>
+		<button onclick="reverse(cars)">点击颠倒cars数组中元素顺序</button>
+		<button onclick="shift(cars)">点击删除cars数组中的第一个元素</button>
+		<button onclick="slice(cars, 1, 2)">点击返回cars数组中的由第二个元素组成的子数组</button><br/>
+		<button onclick="splice(cars, 2, 2, 'Ford')">点击删除cars数组中从第二个元素开始(包括第二个)的两个元素，并且添加在数组被删除的部分添加'Ford'元素</button>
+		<button onclick="unshift(cars, 'Audi', 'Nissan')">点击在cars数组头端添加'Audi'和'Nissan'元素</button>
+		<script type="text/javascript">
+			var names = new Array(3);
+			names[0] = "Adams";
+			names[1] = "Bosco";
+			names[2] = "Canda";
+			var cars = new Array();
+			cars[0] = "Benz";
+			cars[1] = "Honda";
+			cars[2] = "Lexus";
+			function for1(array)
+			{
+				var result = "";
+				for(var x=0;x<array.length;x++)
+				{
+					result = result + " " + array[x];
+				}
+				document.getElementById("p1").innerHTML = result;
+			};
+
+			function for2(array1, array2)
+			{
+				var array = array1.concat(array2);
+				for1(array);
+			};
+
+			function push(array, str)
+			{
+				array.push(str);
+				for1(array);
+			};
+
+			function pop(array)
+			{
+				array.pop();
+				for1(array);
+			};
+
+			function reverse(array)
+			{
+				array.reverse();
+				for1(array);
+			};
+
+			function shift(array)
+			{
+				array.shift();
+				for1(array);
+			};
+
+			function slice(array, start, end)
+			{
+				var array_n = array.slice(start, end);
+				for1(array_n);
+			};
+
+			function splice(array, start, howmany, str)
+			{
+				array.splice(start, howmany, str);
+				for1(array);
+			};
+
+			function unshift(array, str1, str2)
+			{
+				array.unshift(str1, str2);
+				for1(array);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>事件</title>
+		<script src="../jquery.js"></script>
+		<script>
+			$(function()
+			{
+				//简单动画
+				$("#addTo").bind("click", function(){$("div").animate({"left":"200px"}, 1000)});
+				//累加动画
+				$("#add").bind("click", function(){$("div").animate({"left":"+=200px"}, 1000)});
+				//多重动画
+				$("#mul1").bind("click", function(){$("div").animate({"left":"200px","height":"200px"}, 1000)});
+				$("#mul2").bind("click", function(){
+					$("div").animate({"left":"200px"}, 1000)
+							.animate({"height":"200px"}, 1000)});
+				//综合动画
+				$("#mul3").click(function()
+				{
+					$("div").animate({"left":"200px","height":"200px","opacity":"1"}, 1000)
+							.animate({"top":"200px","width":"250px"}, 1000)
+							.fadeOut("slow");
+				});
+				//回调函数
+				$("#mul4").click(function()
+				{
+					$("div").animate({"left":"200px","height":"200px","opacity":"1"}, 1000)
+							.animate({"top":"200px","width":"250px"}, 1000, function(){$(this).css({"border":"10px solid"})});
+				});
+			})
+		</script>
+		<style type="text/css">
+			div {
+				position:relative;
+				left:0px;
+				background-color:green;
+				border:1px dotted;
+				height:50px;
+				width:200px;
+				cursor:pointer;
+				opacity:0.5;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<button type="button" id="addTo">点击右移到200px处</button>
+		<button type="button" id="add">点击右移200px</button>
+		<button type="button" id="mul1">点击右移200px的同时高度变为200px</button>
+		<button type="button" id="mul2">点击先右移200px然后高度变成200px</button>
+		<button type="button" id="mul3">
+			点击先右移200px然后高度变成200px,透明度变为100%然后下移200px,宽度变成250px最后淡出
+		</button>
+		<button type="button" id="mul4">
+			点击先右移200px然后高度变成200px,透明度变为100%然后下移200px,宽度变成250px最后加粗边框
+		</button>
+	</body>
+</html>

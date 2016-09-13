@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<meta name="viewpoint" content="width=device-width initial-scale=1.0">
+		<title>下拉菜单</title>
+		<link rel="stylesheet" href="lib/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="btn-group">
+				<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1">
+					主题<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+					<li role="presentation"><a href=# role="menuitem" tabindex="1">Java</a></li>
+					<li role="presentation"><a href=# role="menuitem" tabindex="2">数据挖掘</a></li>
+					<li role="presentation"><a href=# role="menuitem" tabindex="3">数据通信/网络</a></li>
+					<li role="presentation" class="divider"></li>
+					<li role="presentation"><a href=# role="menuitem" tabindex="4">分离的链接</a></li>
+				</ul>
+			</div>
+
+			<div class="btn-group">
+				<button class="btn btn-success btn-xs dropdown-toggle" data-toggle="dropdown" id="dropdownMenu2">年级
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+					<li role="presentation" class="dropdown-header">低年级</li>
+					<li role="presentation"><a href=# role="menuitem" tabindex="5">一年级</a></li>
+					<li role="presentation"><a href=# role="menuitem" tabindex="6">二年级</a></li>
+					<li role="presentation"><a href=# role="menuitem" tabindex="7">三年级</a></li>
+					<li role="presentation" class="divider"></li>
+					<li role="presentation" class="dropdown-header">高年级</li>
+					<li role="presentation"><a href=# role="menuitem" tabindex="8">四年级</a></li>
+				</ul>
+			</div>
+		</div>
+		<script src="lib/jquery.min.js"></script>
+		<script src="lib/bootstrap.min.js"></script>
+	</body>
+</html>

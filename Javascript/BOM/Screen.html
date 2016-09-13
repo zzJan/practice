@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>Screen对象</title>
+	</head>
+	<body>
+		<p>这个屏幕(除去任务栏宽度)的可用宽度：<span></span> ,可用高度：<span></span></p>
+		<p>这个屏幕的调色板的比特深度是:<span></span></p>
+		<p>这个设备或缓冲器上的调色板的比特深度是：<span></span></p>
+		<p>这个屏幕的每英寸的水平点数(xDPI)是：<span></span></p>
+		<p>这个屏幕的每英寸的垂直点数(yDPI)是：<span></span></p>
+		<p>这个用户是否在显示控制面板中开启字体平滑：<span></span></p>
+		<p>这个屏幕(屏幕分辨率)的宽度是：<span></span>, 高度是：<span></span></p>
+		<p>这个屏幕的每英寸水平方向的常规点数是：<span></span></p>
+		<p>这个屏幕的每英寸垂直方向的常规点数是：<span></span></p>
+		<p>这个屏幕的颜色分辨率(比特每像素)是：<span></span></p>
+		<p>这个屏幕的刷新率(Hz)是：<span></span></p>
+		<script type="text/javascript">
+			document.getElementsByTagName("span")[0].innerHTML = screen.availWidth;
+			document.getElementsByTagName("span")[1].innerHTML = screen.availHeight;
+			document.getElementsByTagName("span")[2].innerHTML = screen.bufferDepth;
+			document.getElementsByTagName("span")[3].innerHTML = screen.colorDepth;
+			document.getElementsByTagName("span")[4].innerHTML = screen.deviceXDPI;
+			document.getElementsByTagName("span")[5].innerHTML = screen.deviceYDPI;
+			document.getElementsByTagName("span")[6].innerHTML = screen.fontSmoothingEnabled;
+			document.getElementsByTagName("span")[7].innerHTML = screen.width;
+			document.getElementsByTagName("span")[8].innerHTML = screen.height;
+			document.getElementsByTagName("span")[9].innerHTML = screen.logicalXDPI;			
+			document.getElementsByTagName("span")[10].innerHTML = screen.logicalYDPI;
+			document.getElementsByTagName("span")[11].innerHTML = screen.pixelDepth;
+			document.getElementsByTagName("span")[12].innerHTML = screen.updateInterval;
+
+		</script>
+	</body>
+</html>

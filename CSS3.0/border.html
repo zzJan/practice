@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>设置css3的边框样式</title>
+		<style type="text/css">
+			div {margin:15px}
+			div#one {
+				width:400px; 
+				background-color:#bebebe; 
+				text-align:center; 
+				border:3px solid #000; 
+				border-top-right-radius:100px;
+				/*-moz-border-radius:50px;*/	/*旧版火狐*/
+				}
+			div#two {
+					width:300px;
+					background-color:rgb(255, 128, 128);
+					text-align:center;
+					border:3px solid #000;
+					border-radius:50px;
+					/*-moz-border-radius:100px;*/	/*旧版火狐*/
+				}
+			div#three {
+					text-align:center;
+					background-color:yellow;
+					width:300px;
+					box-shadow:5px 5px 5px #888;
+				}
+			div#four {
+					width:300px;
+					text-align:center;
+					border:20px solid;
+					border-image:url(img/border.png) 20 20 round;
+				}
+		</style>
+	</head>
+	<body>
+		<div id="one">
+			<p>这个div只有一个角具有圆角边框</p>
+		</div>
+		<div id="two">
+			<p>这个div具有圆角边框</p>
+		</div>
+		<hr/>
+		<div id="three">
+			<p>这个div具有阴影</p>
+		</div>
+		<div id="four">
+			<p>这个div有图片做边框</p>
+		</div>
+	</body>
+</html>

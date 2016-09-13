@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>隐藏和显示</title>
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				$("#click_p").click(function()
+				{
+					$("#bottom").toggle(500);
+				});
+
+				$("#show").click(function()
+				{
+					$("#bottom").show(500);
+				});
+
+				$("#hide").click(function()
+				{
+					$("#bottom").hide(500);
+				});
+			})
+		</script>
+
+		<style type="text/css">
+			div {
+				border:1px solid #C3C3C3;
+				background-color:rgb(229, 238, 204);
+			}
+
+			p {
+				text-align:center;
+				font-size:12px;
+			}
+
+			div#container {
+				width:400px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="top">
+				<p id="click_p">点击显示/隐藏面板</p>
+			</div>
+
+			<div id="bottom">
+				<p>一寸光阴一寸金，因此，我们为您提供快捷易懂的学习内容。</p>
+				<p>在这里，您可以通过一种易懂的便利的模式获得您需要的任何知识。</p>
+			</div>
+		</div>
+		<button type="button" id="show">显示</button>
+		<button type="button" id="hide">隐藏</button>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>测试</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="ContentType" content="text/html" charset="UTF-8">
+		<style>
+		</style>
+	</head>
+	<body>
+		<p>
+		</p>
+		<script>
+			function a()
+			{
+				var fns = new Array();
+				for(var i=0;i<10;i++)
+				{
+					var b = function(num)
+					{
+						fns[num] = function()
+						{
+							return num;
+						}
+					}
+					b(i);
+				}
+				return fns;
+			}
+			var fs = a();
+			for(var i=0;i<fs.length;i++)
+			{
+				console.log(fs[i]());
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title></title>
+		<script type="text/javascript">
+			function forcir()
+			{
+				var persons = new Array;
+				var y = new Number;
+				for(var x=1;x<10;x++)
+				{
+					var person = {name:"john"+x,age:25+x};
+					persons.push(person);
+				};
+
+				for(var y in persons)
+				{
+					document.write(persons[y].toString() + "<br/>");
+				}
+			}
+		</script>
+	</head>
+	<body onload="forcir()">
+		
+	</body>
+</html>

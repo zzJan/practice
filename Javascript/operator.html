@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title></title>
+		<script type="text/javascript">
+			function operator()
+			{
+				var str = "5";
+				var num = 5;
+				document.getElementById("result").innerHTML = "str + num: " + str + num + ";str + str: " + str + str;
+
+			}
+		</script>
+	</head>
+	<body>
+		<p>数字在和字符串运算的时候会转换成字符串</p>
+		<p id="result"></p>
+		<button type="button" onclick="operator()">测试运算</button>
+	</body>
+</html>

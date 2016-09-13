@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>测试</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf8">
+	</head>
+	<body>
+		<script>
+			/**
+			//将成年的对象筛选出来
+			var people = [
+							{age:60,name:"a"},
+							{age:20,name:"b"},
+							{age:4,name:"c"},
+							{age:8,name:"d"},
+							{age:77,name:"e"}
+						];
+			function fliterAdult(array)
+			{
+				for(i in array)
+				{
+					if(array[i].age>18)
+					{
+						console.log(array[i].name);
+					}
+				}
+			};
+			window.onload = fliterAdult(people);
+			*/
+			/*-------------------------------------------------------------*/
+			/**
+			//将正数筛选出来
+			var num = [12, -22, -32, 42, 52, -62, -72, -82, -92, 102, 112, 122, -132, -142, -152, -162];
+			function isPositiveNum(array)
+			{
+				for(i in array)
+				{
+					if(array[i]>0)
+					{
+						console.log(array[i]);
+					}
+				}
+			};
+			window.onload = isPositiveNum(num);
+			*/
+			/*-------------------------------------------------------------*/
+			/**
+			//将指定索引位置的元素排到第一位
+			var nums = [1, 2, 3, 4, 5, 6, 7];
+			function putFirst(array, index)
+			{
+				if(index!=0)
+				{	
+					//get num by index
+					var num = array[index];
+					array.splice(index,1);
+					array.splice(0,0,num);
+					console.log(array);
+				}
+			};
+			window.onload = putFirst(nums,1);
+			*/
+			/*-------------------------------------------------------------*/
+			/**
+			//将所有数字相加
+			var arr = ["a", 15, 25, 35, {age:66, name:"b"}];
+			function sum(array)
+			{
+				var result = 0;
+				for(i in array)
+				{
+					if(parseInt(array[i]))
+					{
+						result+=array[i];
+					}
+				}
+				console.log(result);
+			};
+			window.onload = sum(arr);
+			*/
+			/*-------------------------------------------------------------*/
+			//按照年龄排序
+			var people = [
+							{age:20, name:"c"},
+							{age:60,name:"b"},
+							{age:1,name:"a"},
+							{age:40,name:"d"}
+						];
+			//Bubble sort
+			function sortByAge(array)
+			{
+				for(var a=0;a<array.length;a++)
+				{
+					for(var b=a+1;b<array.length;b++)
+					{
+						if(array[a].age>array[b].age)
+						{
+							var c = array[b];
+							array[b] = array[a];
+							array[a] = c;
+						}
+					}
+				}
+				//console.log(array);
+			};
+
+			//array.sort
+			function sortByAge(a, b)
+			{
+				return a.age - b.age;
+			};
+
+			function sortByName(a, b)
+			{
+				return a.name > b.name;
+			}
+			//console.log(people.sort(sortByAge));
+			//console.log(people.sort(sortByName));
+
+			//array.sort(return function)
+			function sortByProperty(property)
+			{
+				var prop = function(obj1, obj2)
+				{
+					return obj1[property]>obj2[property];
+				}
+				return prop
+			}
+			console.log(people.sort(sortByProperty("age")));
+			// window.onload = sortByAge(people);
+			/*-------------------------------------------------------------*/
+			//去掉重复元素
+			/*
+			var array = ["a", 1, 2, "a", 1, 2, "a", 1, 2];
+			function uniq(array)
+			{
+				var arr = new Array();
+				var flag = false;
+				for(a in array)
+				{
+					for(b in arr)
+					{
+						if(array[a]==arr[b])
+						{
+							flag = true;
+							break;
+						}
+					}
+					if(!flag)
+					{
+						arr.push(array[a]);
+					}
+				}
+				console.log(arr.toSource());
+			}
+			window.onload = uniq(array);
+			*/
+			/*-------------------------------------------------------------*/
+			/**
+			//将原数组元素顺序打乱
+			var nums = [1, 2, 3, 4, 5, 6];
+			function mess(array)
+			{
+				var arr = new Array();
+				var times = array.length;
+				for(;times>0;times--)
+				{
+					arr = arr.concat(array.splice(ran(times),1));
+				}
+				console.log(arr.toSource());
+			};
+			//norm the method
+			function ran(length)
+			{
+				return Math.floor(length*Math.random());
+			}
+			window.onload = mess(nums);
+			*/
+		</script>
+	</body>
+</html>

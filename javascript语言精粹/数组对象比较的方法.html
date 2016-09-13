@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>测试</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="UTF-8">
+		
+	</head>
+	<body>
+		<div id="start">
+			<div></div>
+			<div>
+				<p></p>
+				<div>
+					<p><span><i></i></span></p>
+				</div>
+			</div>
+		</div>
+		<div></div>
+		<script>
+			function by(name, minor) {
+				return function(o, p) {
+					var a, b
+					if(o && p && typeof o === 'object' && typeof p === 'object') {
+						a = o[name]
+						b = p[name]
+						if(a === b) {
+							return typeof minor === 'function' ? minor(o, p) : 0
+						}
+						if(typeof a === typeof b) {
+							return a>b ? 1 : -1
+						}
+					}
+					else {
+						throw {
+							name: 'Error',
+							message: 'Excepted an object when sorting by ' + name
+						}
+					}
+				}
+			}
+			// console.log(show(5)())
+		</script>
+		
+	</body>
+</html>

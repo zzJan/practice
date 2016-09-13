@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>对象</title>
+	</head>
+	<body>
+		名字：<span id="name"></span><br/>
+		地址：<span id="address"></span><br/>
+		年龄：<span id="age"></span><br/>
+		电话：<span id="phone"></span><br/>
+		<script>
+			var obj = {
+				"name" : "Bill Gates",
+				"address" : "Fifth Avenue New York 666",
+				"age" : "65",
+				"phone" : "555 1234567"
+			}
+			document.getElementById("name").innerHTML = obj.name;
+			document.getElementById("address").innerHTML = obj.address;
+			document.getElementById("age").innerHTML = obj.age;
+			document.getElementById("phone").innerHTML = obj.phone;
+		</script>
+	</body>
+</html>

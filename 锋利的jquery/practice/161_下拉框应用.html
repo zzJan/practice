@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>事件</title>
+		<script src="../jquery.js"></script>
+		<script>
+			$(function()
+			{
+				$("#select2r").click(function()
+				{
+					var $options = $("#s1 option:selected");
+					var $remove = $options.remove();
+					$("#s2").append($remove);
+				});
+
+				$("#all2r").click(function()
+				{
+					var $options = $("#s1 option");
+					var $remove = $options.remove();
+					$("#s2").append($remove);
+				});
+
+				$("#select2l").click(function()
+				{
+					var $options = $("#s2 option:selected");
+					var $remove = $options.remove();
+					$("#s2").append($remove);
+				});
+
+				$("#all2l").click(function()
+				{
+					$("#s1").append($("#s2 option").remove());
+				});
+
+				$("#s1").dblclick(function()
+				{
+					var $options = $("option:selected", this);
+					$("#s2").append($options.remove());
+				});
+
+				$("#s2").dblclick(function()
+				{
+					var $options = $("option:selected", this);
+					$("#s1").append($options.remove());
+				});
+			})
+		</script>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div style="float:left">
+			<select multiple id="s1" style="height:200px; width:160px;">
+				<option value="1">option 1</option>
+				<option value="2">option 2</option>
+				<option value="3">option 3</option>
+				<option value="4">option 4</option>
+				<option value="5">option 5</option>
+				<option value="6">option 6</option>
+				<option value="7">option 7</option>
+				<option value="8">option 8</option>
+			</select>
+			<div>
+				<button type="button" id="select2r">选中添加到右边&gt;&gt;</button>
+				<button type="button" id="all2r">全部添加到右边&gt;&gt;</button>
+			</div>
+		</div>
+		<div style="float:left;">
+			<select multiple id="s2" style="height:200px; width:160px;"></select>
+			<div>
+				<button type="button" id="selct2l">&lt;&lt;选中添加到左边</button>
+				<button type="button" id="all2l">&lt;&lt;全部添加到左边</button>
+			</div>
+		</div>
+	</body>
+</html>

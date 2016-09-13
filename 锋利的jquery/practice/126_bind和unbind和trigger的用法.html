@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>事件</title>
+		<script src="../jquery.js"></script>
+		<script>
+			$(function()
+			{
+				$("#btn")
+				.bind("click", fn1=function(){$("#result").append($("<p>first function</p>"))})
+				.bind("click", fn2=function(){$("#result").append($("<p>second function</p>"))})
+				.bind("click", fn3=function(){$("#result").append($("<p>third function</p>"))})		//为btn绑定三个点击事件
+				.one("click", fn4=function(){$("#result").append($("<p>one time function</p>"))})	//绑定一个只有一次生命的事件
+				.bind("myClick1", function(){$("#result").append($("<p>my function</p>"))})		//绑定一个自定义事件
+				.bind("myClick2", function(event, msg1, msg2){$("#result").append($("<p>"+msg1+msg2+"</p>"))});
+																								//绑定一个可以传参数的自定义事件
+
+				$("#delAll").bind("click", function(){$("#btn").unbind("click")});	//新建一个按钮解除btn的点击事件
+				$("#delSec").bind("click", function(){$("#btn").unbind("click",fn2)});	//新建一个按钮解除btn的第二个点击事件
+
+				//$("#btn").trigger("click");		//模拟操作，元素加载完成后，执行所有点击事件
+				$("#btn").trigger("myClick1");		//模拟操作，元素加载完成后，执行myClick1事件
+				$("#btn").trigger("myClick2", ["我的", "自定义事件"]);	
+													//模拟操作，元素加载完成后，执行myClick2事件，并通过数组传参
+				
+				$("input").bind("focus", function(){});		//绑定自定义方法
+				//$("input").trigger("focus");		//模拟操作，操作完成后，input获取焦点(浏览器的默认操作)
+				$("input").triggerHandler("focus");		//模拟操作，操作完成后。input不会获得焦点
+			})
+		</script>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div>
+			<button type="button" id="btn"><span>点击这里</span></button>
+			<button type="button" id="delAll">解除点击绑定事件</button>
+			<button type="button" id="delSec">解除第二个点击绑定事件</button>
+		</div>
+
+		<div id="result" style="border:1px solid">结果是：</div>
+		<input type="text" size=50 placeholder="焦点"/>
+	</body>
+</html>

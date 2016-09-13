@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>字符串对象</title>
+	</head>
+	<body>
+		<h1>将一个string对象为基准形成一个超链接（在最后显示）</h1>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.big()">点击显示大号的字体</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.small()">点击显示小号的字体</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.bold()">点击显示粗字体</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.italics()">点击显示斜字体</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.fixed()">点击显示打印机式的文本</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.strike()">点击显示被划掉的字体</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.fontcolor('red')">点击显示红色字体</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.fontsize(30)">点击显示字号为30px的字体</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.toUpperCase()">点击显示大写的字体</p>
+		<p onclick="var str='HELLO JAVASCRIPT'; this.innerHTML=str.toLowerCase()">点击显示小写的字体</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.sub()">点击显示显示为下标的字体</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.big()">点击显示显示为上标的字体</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.link('http://www.baidu.com/')">点击显示超链接</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.charAt(10)">点击返回hello JavaScript中位置为10的字符</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.charCodeAt(7)">点击返回hello JavaScript中位置为10的字符的Unicode编码</p>
+		<p onclick="var str1='hello',str2=' javascript'; this.innerHTML=str1.concat(str2)">点击将hello和 JavaScript两个字符串连接起来</p>
+		<p onclick="this.innerHTML=String.fromCharCode(104, 101, 108, 108, 111, 32, 106, 97, 118, 97, 115, 99, 114, 105, 112, 116)">点击显示用Unicode编码输出的hello javascript</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.indexOf('e')">点击返回第一个e的下标</p>
+		<p onclick="var str='1 plus 2 multiple 3'; this.innerHTML=str.match(/\d+/g)">点击返回'1 plus 2 multiple 3'中的所有数字(使用match和正则表达式和标志g表示全局搜索,match返回的是一个数组,以逗号分隔,第一个值的下标是0)</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.replace(/a/g, '1')">点击将所有字符a替换成字符1</p>
+		<hr/>
+		<h3>search()方法总是从头部开始搜索,忽略/sth/g的g标志和lastIndex属性,这意味着search()方法总是返回第一个遇到的字符串,另外,search()方法对大小写敏感,如果找不到,就会返回-1</h3>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.search(/javascript/)">点击返回hello javaScript中的'javascript'字符串</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.search(/Javascript/)">点击返回hello javaScript中的'Javascript'字符串</p>
+		<p onclick="var str='hello javascript'; this.innerHTML=str.search(/a/g)">点击返回hello javascript中的'a'字符串,！注意有g标志！</p>
+		<hr/>
+		<h3>slice()方法获取从第n个字符开始之后到第m个字符结束或字符串结尾之间的所有字符，当n,m为负数时表示从后往前数</h3>
+		<p onclick="var str='This is a sentence'; this.innerHTML=str.slice(6)">获取'This is a sentence'中第6个字符开始的所有字符串</p>
+		<p onclick="var str='This is a sentence'; this.innerHTML=str.slice(6, 12)">获取'This is a sentence'中第6个字符到第12个字符之间的字符串</p>
+		<p onclick="var str='This is a sentence'; this.innerHTML=str.slice(-5)">获取'This is a sentence'中从倒数第5个字符开始的所有字符串</p>
+		<hr/>
+		<h3>split()将以某个特定字符串为分隔符，将分隔的元素放入不大于n的数组中</h3>
+		<p onclick="var str='This is a sentence'; this.innerHTML=str.split(' ')">将'This is a sentence'中的元素以空格为分隔符划分，并且存入数组中</p>
+		<p onclick="var str='This is a sentence'; this.innerHTML=str.split('')">将'This is a sentence'中的元素的每个字母划分，并且存入数组中</p>
+		<p onclick="var str='This is a sentence'; this.innerHTML=str.split(' ', 3)">将'This is a sentence'中的元素以空格为分隔符划分，并且存入大小不大于3的数组中，超过数组大小的元素去掉</p>
+		<hr/>
+		<p onclick="var str='This is a sentence'; this.innerHTML=str.subString(2, 14)">将'This is a sentence'中的第2个字符到第14个字符(不包括)之间的字符串提取出来，形成新的字符串</p>
+	<script type="text/javascript">
+		var str = 'hello javascript'; 
+		document.write(str.anchor('anchor1'));
+		
+	</script>
+	</body>
+</html>

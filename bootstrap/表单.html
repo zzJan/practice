@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<meta name="viewpoint" content="width=device-width initial-scale=1.0">
+		<link rel="stylesheet" href="lib/bootstrap.min.css"> 
+		<title>表单</title>
+		<style>
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h3>基本表单</h3>
+			<form role="form">
+				<div class="form-group">
+					<label for="name">名称</label>
+					<input type="text" class="form-control" id="name" placeholder="请输入名称"/>
+				</div>
+				<div class="form-group">
+					<label for="file">上传文件</label>
+					<input type="file" id="file"/>
+					<p class="help-block">这里会显示帮助信息</p>
+				</div>
+				<div class="form-group">
+					<label for="tick">
+						<input type="checkbox" id="tick"/>请打勾
+					</label>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-default">提交表单</button>
+				</div>
+			</form>
+			<hr/>
+			<form class="form-inline" role="form">
+				<div class="form-group">
+					<label for="name">名称</label>
+					<input type="text" class="form-control" id="name" placeholder="请输入名称"/>
+				</div>
+				<div class="form-group">
+					<label class="sr-only">文件输入</label>
+					<input type="file" id="file"/>
+				</div>
+				<div class="checkbox">
+					<label for="tick">
+						<input type="checkbox" id="tick"/>请打勾
+					</label>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-default">提交表单</button>
+				</div>
+			</form>
+			<hr/>
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label class="col-sm-1 control-label" for="nname">昵称</label>
+					<div class="col-sm-11">
+						<input type="text "class="form-control" id="nname" placeholder="请输入您的昵称"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-1 control-label" for="pw">密码</label>
+					<div class="col-sm-11">
+						<input type="password" class="form-control" id="pw" placeholder="请输入您的密码"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-1 col-sm-11">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox"/>请记住我
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-1 col-sm-11">
+						<button type="submit" class="btn btn-default">登陆</button>
+					</div>
+				</div>
+			</form>
+			<hr/>
+			<h3>输入框(input)</h3>
+			<form role="form">
+				<div class="from-group">
+					<label for="name">名称</label>
+					<input type="text" class="form-control" placeholder="请输入您的名称"/>
+				</div>
+			</form>
+			<hr/>
+			<h3>文本框</h3>
+			<form>
+				<div class="form-group">
+					<label>个人信息</label>
+					<textarea class="form-control" rows=5 placeholder="请在此处填上您的个人信息"></textarea>	
+				</div>
+			</form>
+			<hr/>
+			<h3>单选框和复选框</h3>
+			<form role="form">
+				<div class="form-group">
+					<label>兴趣爱好(内联的)</label>
+					<div class="checkbox">
+						<label class="checkbox-inline">
+							<input type="checkbox" value="skiing"/>滑雪
+						</label>
+						<label class="checkbox-inline">
+							<input type="checkbox" value="basketball"/>篮球
+						</label>
+						<label class="checkbox-inline">
+							<input type="checkbox" value="badminton"/>羽毛球
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>性别(内联的)</label>
+					<div class="radio">
+						<label class="checkbox-inline">
+							<input type="radio" name="sex" value="male"/>男
+						</label>
+						<label class="checkbox-inline">
+							<input type="radio" name="sex" value="female"/>女
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>兴趣爱好</label>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="tennis"/>网球
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="swimmming"/>游泳
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="football"/>足球
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>1、请问你是基佬吗？</label>
+					<div class="radio col-sm-offset-1">
+						<input type="radio" name="ques" value="y"/>A.是
+					</div>
+					<div class="radio col-sm-offset-1">
+						<input type="radio" name="ques" value="y2"/>B.我选A
+					</div>
+				</div>
+			</form>
+			<hr/>
+			<h3>下拉框</h3>
+			<form role="form">
+				<div class="form-group">
+					<h4>单选的下拉框</h4>
+					<label>您居住的省份</label>
+					<select class="form-control">
+						<option>广东</option>
+						<option>广西</option>
+						<option>黑龙江</option>
+						<option>上海</option>
+						<option>福建</option>
+						<option>江苏</option>
+						<option>四川</option>
+						<option>河北</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<h4>复选的下拉框</h4>
+					<label>您喜欢的明星</label>
+					<select multiple class="form-control">
+						<option>刘德华</option>
+						<option>张学友</option>
+						<option>黎明</option>
+						<option>郭富城</option>
+						<option>谭咏麟</option>
+						<option>李克勤</option>
+						<option>张国荣</option>
+						<option>陈奕迅</option>
+					</select>
+				</div>
+			</form>
+			<form class="form-horizontal" role="form">
+				<label>静态控件</label>
+				<div class="form-group">
+					<label class="col-sm-1 control-label">Email</label>
+					<div class="col-sm-11">
+						<p class="form-control-static">sample@sam.com</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-1 control-label">密码</label>
+					<div class="col-sm-11">
+						<input type="password" class="form-control" placeholder="请输入您的密码"/>
+					</div>
+				</div>
+			</form>
+			<hr/>
+			<form role="form" class="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-1 control-label">聚焦</label>
+					<div class="col-sm-11">
+						<input type="text" class="form-control" value="该文本框被聚焦..."/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-1 control-label" for="">禁用</label>
+					<div class="col-sm-11">
+						<input type="text" class="form-control" id="" value="该文本框被禁用了..." disabled/>
+					</div>
+				</div>
+				<fieldset disabled>
+					<div class="form-group">
+						<label class="col-sm-1 control-label" for="">禁用(Fieldset)</label>
+						<div class="col-sm-11">
+							<input type="text" class="col-sm-11" id="" value="该文本框被禁用了..."/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-1 control-label">禁用选择框(Fieldset)</label>
+						<div class="col-sm-11">
+							<select class="form-control">
+								<option>该选择框被禁用了...</option>
+							</select>
+						</div>
+					</div>
+				</fieldset>
+				<div class="has-success form-group">
+					<label class="col-sm-1 control-label">输入成功</label>
+					<div class="col-sm-11">
+						<input type="text" class="form-control" id="" value="恭喜你！输入的信息成功"/>
+					</div>
+				</div>
+				<div class="form-group has-warning">
+					<label class="col-sm-1 control-label">输入警告</label>
+					<div class="col-sm-11">
+						<input type="col-sm-11" class="form-control" id="" value="警告！你输入的信息有危险"/>
+					</div>
+				</div>
+				<div class="form-group has-error">
+					<label class="col-sm-1 control-label">输入错误</label>
+					<div class="col-sm-11">
+						<input type="text" class="form-control" id="" value="你输入的信息有误！"/>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>测试</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="ContentType" content="text/html" charset="UTF-8">
+		<style>
+		</style>
+	</head>
+	<body>
+		<p>
+		</p>
+		<script>
+			//新增prototype属性
+			var Person = new Function();
+			Person.prototype.name = "a";
+			Person.prototype.age = 22;
+			Person.prototype.say = function(){console.log("haha")};
+
+			//创建Person对象实例p1，这个实例的属性完全基于原型
+			var p1 = new Person();
+			console.log(p1.name + "," + p1.age);
+
+			//创建Person对象实例p2，这个实例有自己的属性name
+			var p2 = new Person();
+			p2.name = "b";
+			console.log(p2.name + "," + p2.age);
+
+			//检测某个对象的原型链的对象是否存在指定的对象当中
+			console.log("p1是否为Person的原型链对象：" + Person.prototype.isPrototypeOf(p1));
+			console.log("p2是否为Person的原型链对象：" + Person.prototype.isPrototypeOf(p2));
+
+			//检测某个对象的constructor
+			console.log("p1和Person的constructor是否相同：" + (p1.constructor == Person.prototype.constructor));
+			console.log("p2和Person的constructor是否相同：" + (p2.constructor == Person.prototype.constructor));
+
+			//检测某个属性是否存在对象的内存空间中
+			console.log("p1是否有name属性：" + p1.hasOwnProperty("name"));
+			console.log("p2是否有name属性：" + p2.hasOwnProperty("name"));
+
+			//清除某个对象的属性
+			//delete p2.name;
+
+			//检测某个属性是否存在于原型对象 或 自身对象中
+			console.log("name是否存在于p1或Person.prototype对象中：" + ("name" in p1));
+			console.log("name是否存在于p2或Person.prototype对象中：" + ("name" in p2));
+
+			//检测某个属性是否只存在于原型对象中
+			function hasPrototypeProperty(obj, prop)
+			{
+				return ((!obj.hasOwnProperty(prop)) && (prop in obj));
+			};
+			console.log("name是否只存在Person.prototype对象而不存在与p1对象中：" + hasPrototypeProperty(p1, "name"));
+			console.log("name是否只存在Person.prototype对象而不存在与p2对象中：" + hasPrototypeProperty(p2, "name"));
+		</script>
+	</body>
+</html>

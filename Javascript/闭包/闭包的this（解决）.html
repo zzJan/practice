@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>测试</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="ContentType" content="text/html" charset="UTF-8">
+		<style>
+		</style>
+	</head>
+	<body>
+		<p>
+		</p>
+		<script>
+			var name = "window";
+			var Person = {
+				name:"Person",
+				age:22,
+				say:function()
+				{
+					var that = this;
+					return function()
+					{
+						return that.name;
+					}
+				}
+			}
+			console.log(Person.say()());
+		</script>
+	</body>
+</html>

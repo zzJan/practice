@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>获取文本_标签_值</title>
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				$("#btn1").click(function()
+				{
+					$("#result").text($("em").text());
+				});
+
+				$("#btn2").click(function()
+				{
+					$("#result").text($("#p1").text());
+				});
+
+				$("#btn3").click(function()
+				{
+					$("#result").text($("#p1").html());
+				});
+
+				$("#btn4").click(function()
+				{
+					$("#result").text($("input").val());
+				});
+
+				$("#btn5").click(function()
+				{
+					$("#result").text($("a").attr("href") + "  " + $("a").attr("target"));
+				});
+
+				$("#btn6").click(function()
+				{
+					$("#p1").text(function(i, origValue)
+					{
+						return origValue + "新加的吱吱吱吱吱吱吱 " + i;
+					});
+				});
+				$("#btn7").click(function()
+				{
+					$("#result").html("<strong>你好</strong>");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<p id="p1">字字字字字字字字字<em>字字字字字字</em>字</p>
+		<span id="p2">名字：</span><input type="text" value="累观鸟"/><br/>
+		<a href="https://www.baidu.com" target="_blank">访问百度</a><br/>
+		<button type="button" id="btn1">em标签内的文本</button>
+		<button type="button" id="btn2">p标签的文本</button>
+		<button type="button" id="btn3">p元素的HTML标记</button>
+		<button type="button" id="btn4">文本框内的值</button>
+		<button type="button" id="btn5">获取a标签中href和target属性的值</button>
+		<button type="button" id="btn6">回调函数</button>
+		<button type="button" id="btn7">改变result的值</button><br/>
+		<p id="result"></p>
+	</body>
+</html>

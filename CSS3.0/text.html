@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>文字样式</title>
+		<style type="text/css">
+			p#shadow {
+					text-shadow:5px 5px 5px #888;
+					font:bold 20px "楷体";
+					color:blue;
+					padding:3px;
+				}
+			div {margin:10px;}
+			div#breakAll {
+				border:1px solid;
+				width:400px;
+				font:20px "serif";
+				word-break:break-all;
+			}
+			div#keepAll {
+				border:1px solid;
+				border-image:url(img/border.png) 10 10 round;
+				width:700px;
+				font:20px "san-serif";
+				word-break:keep-all;
+				}
+			div#breakWord {
+					border:1px solid;
+					width:650px;
+					font:30px "aerial";
+					word-wrap:break-word;
+				}
+			div#clip {
+					border:1px solid;
+					width:800px;
+					height:50px;
+					font:35px "times";
+					text-overflow:clip;
+					overflow:hidden;
+					white-space:nowrap;
+				}
+			div#ellipsis {
+					border:1px solid;
+					width:800px;
+					height:50px;
+					font:35px "times roman";
+					overflow:hidden;
+					text-overflow:ellipsis;
+					white-space:nowrap;
+				}
+			div#see {
+					border:1px solid;
+					width:800px;
+					height:50px;
+					font:35px "cursive";
+					overflow:hidden;
+					text-overflow:string("余下全文");
+					white-space:nowrap;
+				}
+			div#see:hover {
+					width:auto;
+					height:auto;
+					white-space:normal;
+				}
+		</style>
+	</head>
+	<body>
+		<p id="shadow">一段有阴影的文字</p>
+		<!--允许在单词内换行-->
+		<div id="breakAll">this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.</div>
+		<!--允许在半角空格和连字符处换行-->
+		<div id="keepAll">this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.</div>
+		<!--允许在长单词内部和url内部换行-->
+		<div id="breakWord">this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.</div>
+		<!--修剪溢出文本-->
+		<div id="clip">this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.</div>
+		<!--将溢出文本以省略号表示-->
+		<div id="ellipsis">this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.</div>
+		<!--将溢出文本以固定文本代替-->
+		<div id="see">this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.this is a very long sentence.</div>
+	</body>
+</html>

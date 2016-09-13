@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>事件</title>
+		<script src="../jquery.js"></script>
+		<script>
+			$(function()
+			{
+				var page = 1;
+				var i = 3;
+				$("a.next").click(function()
+				{
+					var $parent = $("a.next").parents("div.v_show");
+					var $v_content = $parent.find("div.v_content");
+					var $v_show = $parent.find("div.v_content_list");
+					var v_width = $v_content.width();
+					var len = $v_show.find("li").length;
+					var page_count = Math.ceil(len / i);
+					if(!$v_show.is(":animated"))
+					{
+						if(page==page_count)
+						{
+							$v_show.animate({"left":"0px"},"slow");
+							page = 1;
+						}
+						else
+						{
+							$v_show.animate({"left":"-="+v_width},"slow");
+							page++;
+						}
+						$(".highlight_tip").find("a").eq(page).addClass("current").siblings().removeClass("current");
+					}
+				})
+			})
+		</script>
+		<style type="text/css">
+			.clear {
+				clear:both;
+			}
+			
+			div.v_show {
+				width:700px;
+				margin:0 auto;
+			}
+
+			a {
+				text-decoration:none;
+			}
+			h2 {
+				float:left;
+				display:inline-block;
+				margin:0px 20px 5px 0px;
+			}
+			div.highlight_tip {
+				float:left;
+				display:inline-block;
+				width:300px;
+			}
+
+			.current {
+				color:#000;
+			}
+
+			div.more {
+				float:right;
+				display:inline-block;
+			}
+
+			div.v_content {
+				overflow:hidden;
+				position:relative;
+			}
+
+			div.v_content_list {
+				white-space:nowrap;
+				position:relative;
+				left:0px;
+			}
+
+			ul {
+				list-style:none outside;
+				margin:0px;
+				padding:0px;
+				position:relative;
+				left:0px;
+				top:0px;
+			}
+
+			ul li {
+				display:inline-block;
+				width:200px;
+				height:200px;
+			}
+
+			img {
+				max-width:100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="v_show">
+			<div class="v_caption">
+				<h2>图片册</h2>
+				<div class="highlight_tip">
+					<a href="#" class="prev">←</a>
+					<a href="#" class="current">1</a>
+					<a href="#" class="">2</a>
+					<a href="#" class="">3</a>
+					<a href="#" class="">4</a>
+					<a href="#" class="next">→</a>
+				</div>
+				<div class="more">
+					<em><a href="#">了解更多</a></em>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="v_content">
+				<div class="v_content_list">
+					<ul>
+						<li>
+							<a href="#">
+								<img src="img/eg_bg_03.gif"/>
+							</a>
+							<h4>
+								<a href="#">查看</a><em>(28,652)</em>
+							</h4>
+						</li>
+						<li>
+							<a href="#">
+								<img src="img/eg_bg_04.gif"/>
+							</a>
+							<h4>
+								<a href="#">查看</a><em>(28,652)</em>
+							</h4>
+						</li>
+						<li>
+							<a href="#">
+								<img src="img/eg_smile.gif"/>
+							</a>
+							<h4>
+								<a href="#">查看</a><em>(28,652)</em>
+							</h4>
+						</li>
+						<li>
+							<a href="#">
+								<img src="img/iphone4s.jpg"/>
+							</a>
+							<h4>
+								<a href="#">查看</a><em>(28,652)</em>
+							</h4>
+						</li>
+						<li>
+							<a href="#">
+								<img src="img/iphone5.jpg"/>
+							</a>
+							<h4>
+								<a href="#">查看</a><em>(28,652)</em>
+							</h4>
+						</li>
+						<li>
+							<a href="#">
+								<img src="img/iphone6s.jpg"/>
+							</a>
+							<h4>
+								<a href="#">查看</a><em>(28,652)</em>
+							</h4>
+						</li>
+						<li>
+							<a href="#">
+								<img src="img/tulip_ballade.jpg"/>
+							</a>
+							<h4>
+								<a href="#">查看</a><em>(28,652)</em>
+							</h4>
+						</li>
+						<li>
+							<a href="#">
+								<img src="img/tulip_flaming_club.jpg"/>
+							</a>
+							<h4>
+								<a href="#">查看</a><em>(28,652)</em>
+							</h4>
+						</li>
+						<li>
+							<a href="#">
+								<img src="img/tulip_fringed_family.jpg"/>
+							</a>
+							<h4>
+								<a href="#">查看</a><em>(28,652)</em>
+							</h4>
+						</li>
+						<li>
+							<a href="#">
+								<img src="img/tulip_peach_blossom.jpg"/>
+							</a>
+							<h4>
+								<a href="#">查看</a><em>(28,652)</em>
+							</h4>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

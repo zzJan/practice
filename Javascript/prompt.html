@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>提示框</title>
+	</head>
+	<body>
+		<button type="button" onclick="up()">显示提示框</button>
+		<script type="text/javascript">
+			function up()
+			{
+				var p = prompt("请问你叫什么名字", "基佬");
+				if(p!=null || p!="")
+				{
+					document.write("你好," + p + " 你今天去厕所没")
+				}
+			}
+		</script>
+	</body>
+</html>

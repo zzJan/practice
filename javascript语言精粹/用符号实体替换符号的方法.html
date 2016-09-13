@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>测试</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="UTF-8">
+		
+	</head>
+	<body>
+		<div id="start">
+			<div></div>
+			<div>
+				<p></p>
+				<div>
+					<p><span><i></i></span></p>
+				</div>
+			</div>
+		</div>
+		<div></div>
+		<script>
+			String.prototype.entityify = function() {
+				let entity = {
+					'<': '&lt;',
+					'>': '&gt;',
+					'"': '&qutp;',
+					' ': '&nbsp;',
+					'©': '&copy;',
+					'®': '&reg;' 
+				}
+				return this.replace(/[<>" ©®]/g, function(v) {
+					console.log(v)
+					return entity[v]
+				})
+			}
+			console.log('<>"" ©®'.entityify())
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>事件</title>
+		<script src="../jquery.js"></script>
+		<script>
+			$(function()
+			{
+				var fontSize = $("p").css("font-size");
+				var textFontSize = parseInt(fontSize, 10);
+				var unit = fontSize.slice(-2);
+				$("#bigger").click(function()
+				{
+					$("p").css({"font-size":(textFontSize += 2) + unit});
+				});
+
+				$("#smaller").click(function()
+				{
+					$("p").css({"font-size":(textFontSize -= 2) + unit})
+				})
+			})
+		</script>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div>
+			<button type="button" id="bigger">放大</button>
+			<button type="button" id="smaller">缩小</button>
+			<p>Some TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome Text</p>
+		</div>
+	</body>
+</html>

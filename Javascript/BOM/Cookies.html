@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>Cookies对象</title>
+	</head>
+	<body onload="checkCookie()">
+		<script type="text/javascript">
+			function setCookie(c_name, value, expireDays)
+			{
+				//设定第一次登陆的日期
+				var exDate = new Date();
+				//设定登陆的有效期
+				exDate.setDate(exDate + expireDays);
+				//将c_name，加密的用户名，有效期写入cookie
+				document.cookie = c_name + "=" + escape(value) + (expireDays==null)? "" : ";expires=" + exDate.toGMTString();
+			};
+
+			function getCookie(c_name)
+			{
+				//检查cookies中是否存在cookie
+				if(document.cookie.length>0)
+				{
+					var c_start = document.cookie.indexOf(c_name + "=");
+					//如果存在，检查已存在的cookies中是否存在包含指定用户名的cookie
+					if(c_start!=-1)
+					{
+						//如果找到了，就返回值
+						c_start = c_start + c_name.length + 1
+						c_end = document.cookie.indexOf(";", c_start);
+						//如果出现越界错误，就证明cookies中只有这一条cookies并且有效期无限长，就直接获取cookies的长度
+						if(c_end==-1)
+						{
+							c_end = document.cookie.length;
+						}
+						//返回解密后的用户名
+						return unescape(document.cookie.subString(c_start, c_end))
+					}
+					//如果不存在，就返回空字符串
+					return "";
+				}
+			};
+
+			function checkCookie()
+			{
+				//通过getCookie方法获得username的cookie
+				username = getCookie("username");
+				//如果存在username的cookie就提示'welcome again'
+				if(username!=null || username!="" || username!=undefined)
+				{
+					alert("welcome again：" + username);
+				}
+				//如果不存在，就提示输入username的提示框
+				else
+				{
+					username = prompt("REGSITER USER \n please input your name", "")
+					if(username!=null || username!="")
+					{
+						//将新建的username的cookie的存在cookies中
+						setCookie('username', username, 300);
+					}
+				}
+				
+			};
+		</script>
+	</body>
+</html>

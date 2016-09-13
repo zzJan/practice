@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>Window对象</title>
+	</head>
+	<body >
+		<p>这个窗口的高度是<span></span>，宽度是<span></span></p>
+		<p>这个窗口的外部高度是<span></span>，外部宽度是<span></span></p>
+		<p>这个窗口的状态栏的默认文本是<span></span></p>
+		<button type="button" onclick="showConfirm()">检测性取向</button><br/>
+		<iframe src="jumpOutFrame.html" height="200px" width="200px"></iframe><br/>
+		<button type="button" onclick="window.scrollTo(200, 500)">将页面滚动到(200, 500)的坐标中</button>
+		<button type="button" onclick="window.scrollBy(0, 500)">将页面向右滚动0个像素，向下滚动500个像素</button><br/>
+		<p id="clock"></p>
+		<button type="button" onclick="start()">点击开始时钟</button>
+		<button type="button" onclick="end()">点击停止时钟</button>
+		<script type="text/javascript">
+			document.getElementsByTagName("span")[0].innerHTML = window.innerHeight;
+			document.getElementsByTagName("span")[1].innerHTML = window.innerWidth;
+			document.getElementsByTagName("span")[2].innerHTML = window.outerHeight;
+			document.getElementsByTagName("span")[3].innerHTML = window.outerWidth;
+			window.defaultStatus = "This is a status infor";
+			document.getElementsByTagName("span")[4].innerHTML = window.defaultStatus;
+			
+			var c;
+			function clock()
+			{
+				var d = new Date();
+				document.getElementById("clock").innerHTML = d;
+			};
+
+			function start()
+			{
+				c = window.setInterval("clock()", 500);
+			};
+
+			function end()
+			{
+				c = window.clearInterval(c);
+			}
+
+			function showConfirm()
+			{
+				var result = confirm("你是基佬吗？");
+				if(result==true) 
+				{
+					alert("想不到你是基佬");
+				}
+				else 
+				{
+					alert("我还没见过如此厚颜无耻的基佬");
+				};
+			};
+
+			/*function cw()
+			{
+				mywindow = window.open("", "mywindow", "height=200px,width=200px");
+				mywindow.focus();
+				mywindow.document.write("This is a child window <br/> 这个窗口会在5秒内自动调用window.close()方法关闭 <br/><br/> window.close()方法只能关闭由js代码");
+				mywindow.opener.document.write("This is a parent window");
+				mywindow.setTimeout("close()", 5000);
+			};*/
+		</script>
+		<p>好长的文本。好长的文本。好长的文本。好长的文本。好长的文本。好长的文本。好长的文本。</p>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<p>好长的文本。好长的文本。好长的文本。好长的文本。好长的文本。好长的文本。好长的文本。</p>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<p>好长的文本。好长的文本。好长的文本。好长的文本。好长的文本。好长的文本。好长的文本。</p>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<p>好长的文本。好长的文本。好长的文本。好长的文本。好长的文本。好长的文本。好长的文本。</p>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	</body>
+</html>

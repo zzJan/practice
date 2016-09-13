@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<meta name="viewpoint" content="width=device-width initial-scale=1.0">
+		<title>复选框组</title>
+		<link rel="stylesheet" href="bootstrap-3.3.5\dist\css\bootstrap.min.css">
+		<style>
+			div.input-group {
+				margin:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="form-group">
+				<form class="bs-example bs-example-form">
+					<div class="input-group">
+						<span class="input-group-addon">@</span>
+						<input type="text" class="form-control" placeholder="邮箱"/>
+					</div>
+
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="金额"/>
+						<span class="input-group-addon">.00</span>
+					</div>
+
+					<div class="input-group">
+						<span class="input-group-addon">$</span>
+						<input type="text" class="form-control" placeholder="金额"/>
+						<span class="input-group-addon">.00</span>
+					</div>
+
+					<div class="input-group">
+						<span class="input-group-addon">
+							<input type="checkbox" />
+						</span>
+						<input type="text" class="form-control" placeholder="您的爱好"/>
+					</div>
+
+					<div class="input-group">
+						<span class="input-group-addon">
+							<input type="radio"/>
+						</span>
+						<input type="text" class="form-control" placeholder="您的性别"/>
+					</div>
+
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="输入您要访问的网址"/>
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-primary">Go!</button>
+						</span>
+					</div>
+
+					<div class="input-group">
+						<span class="input-group-btn">
+								<button type="button" class="btn btn-default">
+									您喜欢的事情
+								</button>
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="">
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href=#><span>您的住址</span></a></li>
+									<li><a href=#><span>您的学校</span></a></li>
+									<li><a href=#><span>您的电话</span></a></li>
+								</ul>
+						</span>
+						<input type="text" class="form-control" placeholder="请输入"/>
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-success">确定</button>
+						</span>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script src="lib/jquery.min.js"></script>
+		<script src="lib/bootstrap.min.js"></script>
+	</body>
+</html>

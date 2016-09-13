@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>适当位置放置图片</title>
+		<style type="text/css">
+			div {height:256px; width:400px; border:solid 1px}
+			div#left-top {background-image:url(img/eg_bg_03.gif); background-repeat:no-repeat; background-position:left top}
+			div#center-top {background-image:url(img/eg_bg_03.gif); background-repeat:no-repeat; background-position:50% 0%}
+			div#right-top {background-image:url(img/eg_bg_03.gif); background-repeat:no-repeat; background-position:270px 0px}
+			div#left-center {background-image:url(img/eg_bg_03.gif); background-repeat:no-repeat; background-position:left center}
+			div#center-center {background-image:url(img/eg_bg_03.gif); background-repeat:no-repeat; background-position:50% 50%;}
+			div#right-center {background-image:url(img/eg_bg_03.gif); background-repeat:no-repeat; background-position:270px 63px}
+			div#left-bottom {background-image:url(img/eg_bg_03.gif); background-repeat:no-repeat; background-position:left bottom}
+			div#bottom-center {background-image:url(img/eg_bg_03.gif); background-repeat:no-repeat; background-position:50% 100%}
+			div#right-bottom {background-image:url(img/eg_bg_03.gif); background-repeat:no-repeat; background-position:270px 126px}
+		</style>
+	</head>
+	<body>
+		<p>安排图片位置可以使用不同的位置表示单位</p>
+		<p>比如最基本的位置表示单一关键字是top right bottom left center，这些关键字可以任意组合</p>
+		<p>也可以使用像素表示，比如background-position:25px 300px</p>
+		<p>也可以使用百分比表示，比如top-right就可以写成background-position:100% 0%</p>
+				<div id="left-top" style="float:left"></div>
+				<div id="center-top" style="float:left"></div>
+				<div id="right-top" style="float:left"></div>
+				<div id="left-center" style="float:left"></div>
+				<div id="center-center" style="float:left"></div>
+				<div id="right-center" style="float:left"></div>
+				<div id="left-bottom" style="float:left"></div>
+				<div id="bottom-center" style="float:left"></div>
+				<div id="right-bottom" style="float:left"></div>
+			</tr>
+		</table>
+	</body>
+</html>

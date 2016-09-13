@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>停止动画</title>
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				$("#up").click(function()
+				{
+					$("#down").toggle(5000);
+				});
+
+				$("#stop1").click(function()
+				{
+					$("#down").stop();
+				});
+
+				$("#stop2").click(function()
+				{
+					$("#down").stop(true, false)
+				});
+
+				$("#stop3").click(function()
+				{
+					$("#down").stop(false, true)
+				});
+
+				$("#stop3").click(function()
+				{
+					$("#down").stop(true, true)
+				});
+			});
+		</script>
+
+		<style type="text/css">
+			div {
+				border:1px solid #c3c3c3;
+				background-color:rgb(229, 238, 204);
+				width:700px;
+			}
+			p {
+				font-size:20px;
+				text-align:center;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button" id="stop1">点击停止动画</button>
+		<button type="button" id="stop2">点击停止所有动画</button>
+		<button type="button" id="stop3">点击立即完成动画</button>
+		<button type="button" id="stop4">点击停止所有动画并立即完成当前动画</button>
+		<div id="container">
+			<div id="up">
+				<p>点击显示/隐藏面板</p>
+			</div>
+			<div id="down">
+				<p>boom shakalaka</p>
+				<p>法海你不懂爱</p>
+			</div>
+		</div>
+	</body>
+</html>

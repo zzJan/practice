@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>日期对象</title>
+	</head>
+	<body onload="showTime()">
+		<p onclick="var d = new Date(); this.innerHTML=d">点击显示日期</p>
+		<p onclick="var d = new Date(); this.innerHTML=d.getTime()">点击返回1970年1月1日至今的毫秒数</p>
+		<p onclick="var d = new Date(); d.setFullYear(1984, 5, 23); this.innerHTML=d">点击显示1984年5月23日的日期</p>
+		<p id="bbb"></p>
+		<p id="com" onclick="compareDate()">点击显示2016.3.9是否已经过去了</p>
+		<script type="text/javascript">
+			function showTime()
+			{
+				var date = new Date();
+				var h = date.getHours();
+				var m = date.getMinutes();
+				var s = date.getSeconds();
+				h = correct(h);	m = correct(m);	s = correct(s);
+				document.getElementById("bbb").innerHTML = "今日时间：" + h + ":" + m +  ":" + s;
+				t = setTimeout("showTime()", 1000);
+			};
+
+			function correct(x)
+			{
+				if(x<10) {x = "0" + x;};
+				return x;
+			};
+			
+			function compareDate()
+			{
+				var today = new Date();
+				var d = new Date();
+				d.setFullYear(2016, 3, 9);
+				if(d<today) document.getElementById("com").innerHTML = "已经过了";
+				else document.getElementById("com").innerHTML = "还没有过";
+			}
+		</script>
+	</body>
+</html>

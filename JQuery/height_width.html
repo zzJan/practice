@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>设置和返回宽度高度</title>
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				$("#btn1").click(function()
+				{
+					$("#result").text("document高度：" + $(document).height() + "   document宽度：" + $(document).width());
+				});
+
+				$("#btn2").click(function()
+				{
+					$("#result").text("window高度：" + $(window).height() + "   window宽度：" + $(window).width());
+				});
+
+				$("#btn3").click(function()
+				{
+					$("#result").text("body高度：" + $("body").height() + "   body宽度：" + $("body").width());
+				});
+
+				$("#btn4").click(function()
+				{
+					$("div").append("<p>这个div的height是" + $("div").height() + "</p>")
+					.append("<p>这个div的width是" + $("div").width() + "</p>")
+					.append("<p>这个div的innerHeight(包括padding和height)是" + $("div").innerHeight() + "</p>")
+					.append("<p>这个div的innerWidth(包括padding和width)是" + $("div").innerWidth() + "</p>")
+					.append("<p>这个div的outerHeight(包括padding和height和border)是" + $("div").outerHeight() + "</p>")
+					.append("<p>这个div的outerWidth(包括padding和width和border)是" + $("div").outerWidth() + "</p>")
+					.append("<p>这个div的outerHeight(true)  (包括padding和height和border和margin)是" + $("div").outerHeight(true) + "</p>")
+					.append("<p>这个div的outerWidth(true)  (包括padding和width和border和margin)是" + $("div").outerWidth(true) + "</p>")
+				})
+			})
+		</script>
+
+		<style type="text/css">
+			div {
+				height:500px;
+				width:500px;
+				padding:10px;
+				border:1px solid;
+				margin:50px;
+				background-color:rgb(116, 104, 255);
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button" id="btn1">点击返回document高度和宽度</button>
+		<button type="button" id="btn2">点击返回screen高度和宽度</button>
+		<button type="button" id="btn3">点击返回body高度和宽度</button>
+		<button type="button" id="btn4">点击返回div高度和宽度</button>
+		<p id="result"></p>
+		<div></div>
+	</body>
+</html>

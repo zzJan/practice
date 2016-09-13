@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>品牌列表效果</title>
+		<script src="../jquery.js"></script>
+		<script>
+			$(function()
+			{
+				//1、查找属性
+				alert("1、 " + $('p').attr('title'));
+				//2、查找节点
+				alert("2、 " + $("ul li").eq(1).text());
+				//3、创建节点
+					var $l1 = $("<li></li>");	//创建①
+					var $l2 = $("<li/>");		//创建②
+					var $l3 = $("<li title='柚子'>柚子</li>")	//创建③
+					$("ul").append($l1.text("苹果")).append($l2.text("梨子")).append($l3);
+				//4、插入节点
+					//互换位置
+					var $li1 = $("ul li:eq(1)");
+					var $li2 = $("ul li:eq(2)");
+					$li1.insertAfter($li2);
+				//5、删除节点
+					//删除元素，并获取返回引用，插入到列表最后
+					$("ul").append($("ul li:eq(0)").remove());
+					//remove传参
+					$("ul li").remove("li[title='柚子']");
+
+					//detach删除会保留事件和数据,remove不会
+					$("ul li:eq(0),ul li:eq(1)").click(function(){alert("html")});
+					$("ul").append($("ul li:eq(0)").detach());
+					$("ul").append($("ul li:eq(1)").remove());
+
+					//empty能清空节点和后代节点
+					$("ul li:eq(0)").empty();
+				//6、复制节点
+					//复制但是没有事件
+					$("ul li").click(function()
+					{
+						$(this).clone().appendTo("ul");
+					})
+					//复制，包含事件
+					$("ul li").click(function()
+					{
+						$(this).clone(true).appendTo("ul");
+					})
+				//7、替换节点
+					//替换但是没有事件
+					//$("p").replaceWith("<strong>你喜欢的水果是</strong>");
+					$("<strong>你喜欢的水果是</strong>").replaceAll($("p"));
+			})
+		</script>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<p title="选择你喜欢的水果">你喜欢的水果是？</p>
+		<ul>
+			<li>橘子</li>
+			<li>橙子</li>
+			<li>桔子</li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>css调用背景</title>
+		<style type="text/css">
+			h1#red {background-color:rgb(255, 0, 0);}
+			h1#transparent {background-color:transparent;}
+			h1#pic {background-image:url(img/eg_bg_03.gif);}
+			iframe {height:256px ; width:1300px;}
+		</style>
+	</head>
+	<body>
+		<h1 id="red">使用background-color将该标签的背景改为红色</h1>
+		<h1 id="transparent">使用transparent将该标签的背景颜色设置成与父元素相同</h1>
+		<h1 id="pic">使用background-image将该标签的背景改为图片</h1>
+		<h1 id="repeaty">使用background-repeat将标签的背景改为沿y轴重复的图片</h1>
+		<iframe src="background_1.html"></iframe>
+		<h1 id="repeatx">使用background-repeat将标签的背景改为沿x轴重复的图片</h1>
+		<iframe src="background_2.html"></iframe>
+		<h1 id="position">使用background-position将标签的背景图片位置的改变</h1>
+		<iframe src="background_3.html"></iframe>
+		<h1 id="attachment">使用background-attachment将标签的背景图片固定在某处</h1>
+		<iframe src="background_4.html"></iframe>
+	</body>
+</html>

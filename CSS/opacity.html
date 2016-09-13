@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta charset="utf8">
+		<title></title>
+		<style type="text/css">
+			img#pic {
+				opacity:0.4;	/*IE8.0以上*/
+				filter:alpha(opacity=40);	/*IE8.0以下*/
+				height:256px;
+				width:256px;
+				}
+			img#pic:hover {
+					opacity:1.0;	/*IE8.0以上*/
+					filter:alpha(opacity=100);	/*IE8.0以下*/
+				}
+			div#container {
+					height:512px;
+					width:512px;
+					background-image:url(img/tulip_ballade.jpg);
+					background-repeat:no-repeat;
+				}
+			div#content {
+					opacity:0.5;	/*IE8.0以上*/
+					filter:alpha(opacity=50)	/*IE8.0以下*/
+					height:256px;
+					width:256px;
+					position:relative;
+					top:96px;
+					left:64px;
+					background-color:white;
+				}
+			p {
+				font-size:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/tulip_ballade.jpg" alt="tulip" id="pic"/>
+		<div id="container">
+			<div id="content">
+				<p>好多文本。好多文本。好多文本。好多文本。好多文本。好多文本。好多文本。好多文本。好多文本。好多文本。好多文本。好多文本。好多文本。好多文本。好多文本。好多文本。</p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>节点</title>
+	</head>
+	<body>
+		<div id="container">
+			<p id="content">演示如何通过DOM和js在此div元素中添加和删除两个p元素</p>
+		</div>
+		<script type="text/javascript">
+		//===============================添加①==========================================
+			var d = document.getElementById("container");
+			var para = document.createElement("p");
+			para.id = "p1";
+			para.style.color = "red";
+			var text = document.createTextNode("这是一个用js来创造的段落①");
+			para.appendChild(text);
+			d.appendChild(para);
+		//===============================添加②==========================================
+			var content = document.getElementById("content");
+			var para = document.createElement("p");
+			para.id = "p2";
+			var text = document.createTextNode("这是一个用js来创造的段落②");
+			para.appendChild(text);
+			content.parentNode.appendChild(para);
+		//===============================删除①============================================
+			var d = document.getElementById("container");
+			var p1 = document.getElementById("p1")
+			d.removeChild(p1);
+
+		//===============================删除②============================================
+			var p2 = document.getElementById("p2");
+			var content = document.getElementById("content");
+			content.parentNode.removeChild(p2);
+		//==============================获得全体元素======================================
+			var d = document.getElementById("container");
+			var btn = document.createElement("button");
+			btn.type = "button";
+			btn.onclick = function(){alert(document.body.innerHTML);};
+			btn.innerHTML = "点击提示body元素的内容";
+			d.appendChild(btn);
+		</script>
+	</body>
+</html>

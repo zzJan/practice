@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>js</title>
+		<script>
+			function newArray()
+			{
+				var arrays = ["金坷垃","感觉","玩儿"];
+				for(i=0;i<arrays.length;i++)
+				{
+					document.write(arrays[i]);
+				}
+			}
+
+			function newObject()
+			{
+				var person = {firstname:"lao",lastname:"wang",age:"50",address:"China"};
+				document.getElementById("h1").innerHTML = person.firstname+" "+person.lastname+"今年"+person.age+"岁了,住在"+person.address+",生活很开心！";
+			}
+		</script>
+	</head>
+	<body>
+		<h1 id="h1">点击显示结果<h1>
+		<button type="button" onclick="newArray()">测试数组</button>
+		<button type="button" onclick="newObject()">测试对象</button>
+	</body>
+</html>

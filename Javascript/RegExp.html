@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>正则表达式对象</title>
+		<style type="text/css">
+			p {
+				font:20px "serif";
+				text-indent:25px;
+				width:100%;
+				word-break:break-all;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="content">
+			There are many ways to success, such as hard working, passion or good preparations. From Honore De Balzac’s famous remark, “There is no such thing as a great talent without great will power”, we can see that the way to success is having a strong will.<br/>
+			A strong will is essential if we want to achieve our goals. Initially, every success involves several stages of setbacks and risks, and we need to summon up our will to overcome them. Moreover, there are enormous temptations in our path of the pursuit of success. Only with a strong will can we resist the temptation, and persist in chasing our goals until we reach them.<br/>
+			The long history of human being has also proved that only those with a strong will can achieve success at last. We are all familiar with Thomas Edison’s story that he had tried one thousand kinds of materials before he finally made his great bulb light up. Without a strong will, Edison might have been a nobody. Without a strong will, no one can succeed.<br/>
+		</p>
+		<script type="text/javascript">
+			var x = document.getElementById("content").innerHTML;
+			document.write(x.replace(/a/g, "a".fontcolor("red")));
+			
+		</script>
+	</body>
+</html>

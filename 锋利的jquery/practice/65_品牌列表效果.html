@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>品牌列表效果</title>
+		<script src="../jquery.js"></script>
+		<script>
+			$(function()
+			{
+				$category = $("ul li:gt(5):not(:last)");		//选取li中下标大于5的但不是最后一个的集合
+				$category.hide();								//默认将$category隐藏
+				$togglebtn = $("div.showMore > a");				//选择showMore类下的a元素
+				$togglebtn.click(function()						//该元素被点击时
+				{
+					if($category.is(":visible"))				//如果$category没有被隐藏
+					{
+						$category.hide();						//隐藏$category
+						$togglebtn.find("span")					//找到a元素下的span元素
+						.css({"background-color":"lightgreen"})	//将其背景改为淡绿色
+						.text("显示所有品牌")					//该内容
+						$("ul li").removeClass("promote");		//移除高亮
+					}
+					else										//如果$category被隐藏
+					{
+						$category.show();						//显示
+						$("ul li").filter(":contains('佳能'),:contains('三星'),:contains('富士')").addClass("promote");	
+																//将包含佳能、三星、富士的元素加入高亮
+						$togglebtn.find("span")					//找到a元素下的span元素
+						.css({"background-color":"lightblue"})	//改背景
+						.text("隐藏品牌");						//该内容
+					}
+					return false;								//提示该超链接没有跳转
+				})
+			})
+		/**
+			$(function()
+			{
+				var $category = $("ul li:gt(5):not(:last)");
+				$category.hide();
+				var $togglebtn = $("div.showMore > a");
+				$togglebtn.toggle(
+				function()
+				{
+					$category.show();
+					$("ul li").filter(":contains('佳能'),:contains('尼康'),:contains('松下')").addClass("promote");
+					$(this).find("span")
+					.css({"background-color":"lightgreen"})
+					.text("隐藏品牌");
+				}
+				,function()
+				{
+					$category.hide();
+					$("ul li").removeClass("promote");
+					$(this).find("span")
+					.css({"background-color":"lightblue"})
+					.text("显示所有品牌");
+				})
+			})
+		*/
+		</script>
+		<style type="text/css">
+			ul {
+				padding:0px;
+				margin:0px;
+				list-style:none outside;
+			}
+
+			 ul li {
+				display:inline-block;
+				width:200px;
+				height:50px;
+				border:1px solid;
+				text-align:center;
+				vertical-align:middle;
+			}
+
+			a {
+				text-decoration:none;
+				font-size:0.875em;
+				display:block;
+			}
+
+			.showMore {
+				margin:5px auto;
+				width:200px;
+				height:50px;
+				border:1px solid;
+			}
+
+			.promote {
+				background-color:yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="subCategoryBox">
+			<ul>
+				<li><a href=#>佳能</a><i>123456</i></li>
+				<li><a href=#>索尼</a><i>13456</i></li>
+				<li><a href=#>三星</a><i>12356</i></li>
+				<li><a href=#>尼康</a><i>13456</i></li>
+				<li><a href=#>松下</a><i>12346</i></li>
+				<li><a href=#>卡西欧</a><i>12345</i></li>
+				<li><a href=#>富士</a><i>1256</i></li>
+				<li><a href=#>柯达</a><i>1236</i></li>
+				<li><a href=#>宾得</a><i>1234</i></li>
+				<li><a href=#>奥林巴斯</a><i>3456</i></li>
+				<li><a href=#>爱国者</a><i>1456</i></li>
+				<li><a href=#>其他品牌相机</a><i>23456</i></li>
+			</ul>
+		</div>
+		<div class="showMore">
+			<a href="#"><span>显示全部品牌</span></a>
+		</div>
+	</body>
+</html>

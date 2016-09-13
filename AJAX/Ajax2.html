@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title></title>
+		
+	</head>
+	<body>
+		<p id="result"></p>
+		<script>
+			function refreshPrice(data) {
+				var p = document.getElementById('result');
+				p.textContent = `code: ${data['0000001'].code}, price: ${data['0000001'].price}`;
+			}
+			function init() {
+				var script = document.createElement('script');
+				script.setAttribute('src', 'http://api.money.126.net/data/feed/0000001,1399001?callback=refreshPrice')
+				document.body.appendChild(script)
+			}
+			window.onload = init
+		</script>
+	</body>
+</html>

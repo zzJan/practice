@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title></title>
+		<script type="text/javascript">
+			function infor(name, sex, country)
+			{
+				if(sex=="1") var sex = "man";
+				else if(sex=="0") var sex = "female";
+				document.getElementById("result").innerHTML = "name: "+name+" sex: "+sex+" country: "+country;
+			}
+		</script>
+	</head>
+	<body>
+		<p id="result"></p>
+		<button type="button" onclick="infor('lihua', '1', 'China')">李华的信息</button>
+		<button type="button" onclick="infor('xiuji', null, 'Japan')">秀吉的信息</button>
+	</body>
+</html>

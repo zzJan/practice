@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>事件</title>
+		<script src="../jquery.js"></script>
+		<script>
+			/**
+				只要button被点击，事件会根据DOM层次结构向上依次触发
+			*/
+			$(function()
+			{
+				$("div button").click(function(event)		//*关键* 传入event参数
+				{
+					$("#result").append($("<p>button元素被点击</p>"));
+					//event.stopPropagation();				//*关键* 使用stopPropagation()方法
+				});
+
+				$("div").click(function(event)
+				{
+					$("#result").append($("<p>div元素被点击</p>"));
+					event.stopPropagation();
+				})
+
+				$("body").click(function()
+				{
+					$("#result").append($("<p>body元素被点击</p>"));
+				})
+			})
+		</script>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div>
+			<button type="button"><span>点击这里</span></button>
+		</div>
+
+		<div id="result" style="border:1px solid">结果是：</div>
+	</body>
+</html>

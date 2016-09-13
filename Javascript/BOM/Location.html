@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>Location对象</title>
+	</head>
+	<body>
+		<p>这个网页的锚(#后面的)是：<span></span></p>
+		<p>这个网页的主机名和当前的URL端口号：<span></span></p>
+		<p>这个网页的主机名是：<span></span></p>
+		<p>这个网页的完整URL是：<span></span></p>
+		<p>这个网页的路径名是：<span></span></p>
+		<p>这个网页的端口号是：<span></span></p>
+		<p>这个网页的协议是：<span></span></p>
+		<p>这个网页的查询部分(？后面的URL)是：<span></span></p>
+		<script type="text/javascript">
+			document.getElementsByTagName("span")[0].innerHTML = location.hash;
+			document.getElementsByTagName("span")[1].innerHTML = location.host;
+			document.getElementsByTagName("span")[2].innerHTML = location.hostname;
+			document.getElementsByTagName("span")[3].innerHTML = location.href;
+			document.getElementsByTagName("span")[4].innerHTML = location.pathname;
+			document.getElementsByTagName("span")[5].innerHTML = location.post;
+			document.getElementsByTagName("span")[6].innerHTML = location.protocol;
+			document.getELementsByTagName("span")[7].innerHTML = location.search;
+		</script>
+	</body>
+</html>

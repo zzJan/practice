@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>事件</title>
+		<script src="../jquery.js"></script>
+		<script>
+			$(function()
+			{
+				//1、可以同时为几个触发器绑定同一事件 2、可以为触发器指定特定的命名空间
+				$("#btn").bind("mouseover.plugin click", function(){$("#result").append("<p>function awaked</p>")});
+				//3、当使用unbind时可以指定解除某一命名空间的所有触发器
+				$("#delPlugin").bind("click", function(){$("#btn").unbind(".plugin")});
+
+				//1、给btn绑定一个不属于plugin命名空间的事件，这样mouseover触发时会添加两条语句
+				$("#btn").bind("mouseover", function(){$("#result").append("<p>function awaked</p>")});
+				$("mouseoverOnly").bind("click", function(){$("#btn").trigger("mouseover!")});
+			})
+		</script>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div>
+			<button type="button" id="btn"><span>点击这里</span></button>
+			<button type="button" id="delPlugin">解除plugin空间的点击绑定事件</button>
+			<button type="button" id="mouseoverOnly">只触发处于非命名空间的mouseover事件</button>
+		</div>
+
+		<div id="result" style="border:1px solid">结果是：</div>
+		<input type="text" size=50 placeholder="焦点"/>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>26_DOM和JQuery对象互换</title>
+		<script src="../jquery.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				//将JQuery对象转化成DOM对象
+				var $c1 = $("#c1");		//JQuery对象
+				var c1 = $c1.get(0);		//DOM对象
+				//将DOM对象转化为JQuery对象
+				var c2 = document.getElementById("c2");		//DOM对象
+				var $c2 = $(c2);		//JQuery对象
+
+				$("#para").html("你好");
+
+				if($c1.is(":checked"))
+				{
+					alert("你选择了跑步");
+				}
+
+				if($("#c3").length>0)
+				{
+					alert("nihao");
+				}
+			});
+		</script>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<p id="para"></p>
+		<input type="checkbox" name="sport" value="run" id="c1" checked="checked"/>跑步<br/>
+		<input type="checkbox" name="sport" value="ski" id="c2"/>滑雪
+	</body>
+</html>

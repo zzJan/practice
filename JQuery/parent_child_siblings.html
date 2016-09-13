@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>父级元素</title>
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				$("#btn1").click(function()
+				{
+					$("span").parent().css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn2").click(function()
+				{
+					$("span").parents().css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn3").click(function()
+				{
+					$("span").parents("ul").css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn4").click(function()
+				{
+					$("span").parentsUntil("div").css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn5").click(function()
+				{
+					$("div").children().css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn6").click(function()
+				{
+					$("div").find("*").css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn7").click(function()
+				{
+					$("div").find("li").css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn8").click(function()
+				{
+					$("div").find(".child").css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn9").click(function()
+				{
+					$("span").siblings().css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn10").click(function()
+				{
+					$("span").siblings("h3").css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn11").click(function()
+				{
+					$("span").next().css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn12").click(function()
+				{
+					$("span").nextAll().css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn13").click(function()
+				{
+					$("span").nextUntil("h4").css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn14").click(function()
+				{
+					$("h5").prev().css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn15").click(function()
+				{
+					$("h5").prevAll().css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn16").click(function()
+				{
+					$("h5").prevUntil("h1").css({"color":"red","border":"2px solid red"});
+				});
+
+				$("#btn17").click(function()
+				{
+					$("span").css({"color":"lightgrey","border":"2px solid lightgrey"});
+					$("span").parents().css({"color":"lightgrey","border":"2px solid lightgrey"});
+					$("span").siblings().css({"color":"lightgrey","border":"2px solid lightgrey"});
+					$("html,body").css({"border":"none"});
+				});
+			});
+		</script>
+
+		<style type="text/css">
+			.ancestors {
+				display:block;
+				border:2px solid lightgrey;
+				color:lightgrey;
+				padding:5px;
+				margin:15px;
+				font-size:14px;
+			}
+
+			div {
+				width:800px;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button" id="btn1">点击显示span的父级元素</button>
+		<button type="button" id="btn2">点击显示span的全部父级元素</button>
+		<button type="button" id="btn3">点击显示span的父级元素ul</button>
+		<button type="button" id="btn4">点击显示span和div之间的父级元素</button>
+		<br/>
+		<button type="button" id="btn5">点击显示div的子级元素</button>
+		<button type="button" id="btn6">点击显示div的全部子级元素</button>
+		<button type="button" id="btn7">点击显示div的子级元素li</button>
+		<button type="button" id="btn8">点击显示div的所有属于child类的子级元素</button>
+		<br/>
+		<button type="button" id="btn9">点击显示span的所有同胞元素</button>
+		<button type="button" id="btn10">点击显示span的同胞元素h3</button>
+		<button type="button" id="btn11">点击显示span的下一个同胞元素</button>
+		<button type="button" id="btn12">点击显示span下面的所有同胞元素</button>
+		<button type="button" id="btn13">点击显示span和h4之间的全部同胞元素</button>
+		<button type="button" id="btn14">点击显示h5的上一个同胞元素</button>
+		<button type="button" id="btn15">点击显示h5上面的全部同胞元素</button>
+		<button type="button" id="btn16">点击显示h5和h1之间的全部同胞元素</button>
+		<br/>
+		<button type="button" id="btn17">清空所有红色</button>
+		<br/>
+		body(曾曾祖父)
+		<div class="ancestors">
+			div(曾祖父, 当前元素)
+			<ul class="ancestors child">
+				ul(祖父, 孙)
+				<li class="ancestors">
+					li(直接父, 曾孙)
+					<span class="ancestors child">
+						span(当前元素, 曾曾孙)
+					</span>
+					<h1 class="ancestors">
+						h1(当前元素, 曾曾孙)
+					</h1>
+					<h2 class="ancestors">
+						h2(当前元素, 曾曾孙)
+					</h2>
+					<h3 class="ancestors">
+						h3(当前元素, 曾曾孙)
+					</h3>
+					<h4 class="ancestors">
+						h4(当前元素, 曾曾孙)
+					</h4>
+					<h5 class="ancestors">
+						h5(当前元素, 曾曾孙)
+					</h5>
+					<h6 class="ancestors">
+						h6(当前元素, 曾曾孙)
+					</h6>
+				</li>
+			</ul>
+		</div>
+	
+	</body>
+</html>

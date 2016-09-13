@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>css调用文本</title>
+		<style type="text/css">
+			p#indent_1 {text-indent:20px; font:20px bold;}
+			p#indent_2 {text-indent:-20%; font:20px bold;}
+			a#padding {padding-left:20px; text-decoration:none;}
+			div#indent-div {text-indent:25px}
+			p#wordspacing {word-spacing:25px}
+			p#letterspacing_1 {letter-spacing:25px}
+			p#letterspacing_2 {letter-spacing:25px}
+			p#texttransform_1 {text-transform:uppercase}
+			p#texttransform_2 {text-transform:lowercase}
+			p#texttransform_3 {text-transform:capitalize}
+			p#textdecoration_1 {text-decoration:underline}
+			p#textdecoration_2 {text-decoration:line-through}
+			p#textdecoration_3 {text-decoration:overline}
+			p#whitespace_1 {white-space:pre}
+			p#whitespace_2 {white-space:nowrap}
+			p#whitespace_3 {white-space:pre-line}
+			p#whitespace_4 {white-space:pre-wrap}
+			p#direction_1 {direction:rtl}
+			p#direction_2 {direction:ltr}
+		</style>
+	</head>
+	<body>
+		<p id="indent_1">熊是食肉目熊科动物的统称，目前全球有8种熊[1]：有大家耳熟能详的棕熊、黑熊（美洲、亚洲）、北极熊和大熊猫；还有不那么著名的眼镜熊、懒熊和马来熊。除了马来熊的体型算不上巨大，其他的熊可都是庞然大物，遇到他们不能掉以轻心。“遇到熊时，赶快躺下装死，因为熊是不吃死了的动物的。”这个说法流传颇广，但是究竟有多少可信度呢？先来看看熊到底吃不吃死物吧。</p>
+		<p id="indent_2">虽然熊是杂食性动物，青草、嫩枝、苔藓、块根、块茎、果实、昆虫、鸟类、鱼、鼠类、蛙、鸟卵、蜂蜜甚至鹿、羊、牛等，都在熊家的菜单上有一席之地，但毕竟身为食肉目的一员，多数熊还是更爱吃肉的（默默无视有素食主义倾向的眼镜熊）。大熊猫虽然平日里主要靠啃竹子度日，但遇到竹鼠绝不会放过，偶尔还会偷村民晾晒的肉干吃</p>
+		<a id="padding" href=#>但是text-indent样式只能对块级元素有效，如果要对图像或者行内元素使用缩进效果，使用内边距或者外边距来制造缩进效果</a>
+		<div id="indent-div">
+			<p>白家庄民某，盗邻鸭烹之。至夜，觉肤痒。天明视之，茸生鸭毛，触之则痛。大惧，无术可医。夜梦一人告之曰：“汝病乃天罚。须得失者骂，毛乃可落。”邻翁素雅量，每失物，未尝征于声色。民跪告翁曰“鸭乃某甲所盗。彼甚畏骂，骂之亦可警将来。”翁笑曰：“谁有闲气骂恶人。” 卒不骂。某益窘，因实告邻翁。翁乃骂，其病良已。</p>
+			<p>对块级父类元素使用text-indent样式，子类块级元素会自动继承</p>
+			<a href=#>booooo</a>
+			<p>不过行内元素并不会继承</p>
+		</div>
+		<p id="wordspacing">这 个 元 素 的 每 个 字 之 间 都 会 有 2 5 p x 的 间 隔，但是要事先插入空格</p>
+		<p id="letterspacing_1">In this sentence,each letter has 25px space</p>
+		<p id="letterspacing_2">但是汉字是以字来区分的</p>
+		<p id="texttransform_1">This is a test sentence</p>
+		<p id="texttransform_2">THIS IS A TEST SENTENCE</p>
+		<p id="texttransform_3">this is a test sentence</p>
+		<p id="textdecoration_1">一段有下划线的字</p>
+		<p id="textdecoration_2">一段被划掉的字</p>
+		<p id="textdecoration_3">一段有上划线的字</p>
+		<!--pre样式完整保留空白符和回车，以及所有对文本的编辑，不修改的展现出来，但是不自动换行-->
+		<p id="whitespace_1">东京有一家天妇罗名店叫“美川是山居”，
+		老板早乙女哲哉先生曾经被George Tokoro（所ジョージ）邀请参与一档电视节目，
+		主题是珠峰上怎么做天妇罗料理。最后虽然没有去8844米的珠峰，不过也去了海拔5500米的地方制作。他回忆说当时以为没有什么差别，一上手才发现完全不同。回去之后也悟到了天妇罗在油炸当中，
+		其实是将蒸和烤同时进行的。</p>
+		<!--nowrap样式会将文本一直延续下去直到遇到<br/>标签，回车符和空白符不会被识别，也不允许自动换行-->
+		<p id="whitespace_2">可是油呢，我们需要高压锅来加热油吗？
+		并不用。油并不会沸腾，一锅油在高       原还是可以很容易加热到200度的。而把食物丢进油锅，也是受到200度的油来传热的。这么说来，用油炸制天妇罗没啥问题啊！<br/>不，你又想简单了</p>
+		<!--pre-line样式会保留回车符但是不会保留空白符，并且允许自动换行-->
+		<p id="whitespace_3">用油作为介质对食物加热,就叫油    炸。然而，我们吃的食物中，
+		绝大部分都含水，而且含量还都很高。所以，油炸中加热的过程并不是均匀进行的，与“煎”类似，食物外层接触高温油的部分直接受热，温度上升最快。一旦温度超过水的沸点，水就会大量蒸发，
+		蒸汽在油中释放，形成大大小小的气泡，带着食物在油锅里翻滚。这是为什么油锅里有那么多小气泡</p>
+		<!--pre-wrap样式会保留回车符和空白符，但是不允许自动换行-->
+		<p id="whitespace_4">内层的食物接触不到高                                   温的油，所以导热只能通过从外到内的梯度来完成。外层虽然可以接触到200度的油，
+		但当面糊的水分开始蒸发以后，蒸发带走了多余的热量，向内层传热的温度也就只是水的沸点。热传递时温差越大，速率越快，但是在高原时，水沸点的温度降低，
+		所以即便用同样的油温也依然要炸得更久些。等外壳的水分蒸干以后，向内传导的温度才会逐渐升高。说人话就是，很可能外壳脱水了！焦化了！里面搞不好还没熟！
+		高原的时候，里面熟的更慢了，要炸更久，外壳可能更焦！</p>
+		<p id="direction_1">a right-to-left text.</p>
+		<p id="direction_2">a left-to-right text.</p>
+	</body>
+</html>
