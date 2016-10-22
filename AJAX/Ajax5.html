@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>测试</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div id="start">
+			<a href="#">测试</a>
+		</div>
+		<div></div>
+		<script>
+		$.ajax({
+			type: 'get',
+			async: true,
+			url: 'file.txt',
+			callback: function(data, status) {
+				var str = `data: ${data},status: ${status}`
+				console.log(str)
+			},
+			dataType: 'json'
+		}).done(function(data) {
+
+		}).fail(function(xhr, status) {
+
+		}).always(function() {
+			
+		})
+		$.get('file.txt', function(data, status) {
+			var str = `data: ${data},status: ${status}`
+			console.log(str)
+		})
+		$.post('file.txt', {
+			name: 'andy',
+			age: 44
+		}, function(data, status) {
+			var str = `data: ${data}, status: ${status}`
+			console.log(str)
+		})
+		$.getJSON('file.txt', function(data) {
+			data.forEach((v,i) => `${i}: ${v}`)
+		})
+		
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,365 @@
+@r: #f00;
+
+.table {
+    width: 100%;
+}
+.grid {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 150px;
+    width: 150px;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    overflow: hidden;
+}
+
+// ======================
+#triangle-top {
+    width: 0;
+    height: 0;
+    margin: 0 auto;
+    border: 50px solid transparent;
+    border-bottom: 50px solid @r;
+}
+
+// ======================
+#triangle-top-left {
+    width: 0;
+    height: 0;
+    margin: 0 auto;
+    border: 50px solid transparent;
+    border-top: 50px solid @r;
+    border-left: 50px solid @r;
+}
+
+// ======================
+#curvedarrow {
+    position: relative;
+    width: 0;
+    height: 0;
+    top: 20px;
+    left: 20px;
+    border-top: 9px solid transparent;
+    border-right: 9px solid @r;
+    transform: rotate(10deg);
+}
+#curvedarrow::after {
+    content: '';
+    position: absolute;
+    border: 0 solid transparent;
+    border-top: 3px solid @r;
+    border-top-left-radius: 20px;   // 此处造成头宽尾巴窄
+    top: -12px;
+    left: -9px;
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg);
+}
+
+// ======================
+#trapezoid {
+    margin: 0 auto;
+    width: 50px;
+    border-bottom: 50px solid @r;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+}
+
+// ======================
+#parallelogram {
+    height: 50px;
+    width: 100px;
+    background-color: @r;
+    margin: 0 auto;
+    transform: skewX(20deg);
+}
+
+// ======================
+#star-six {
+    position: relative;
+    width: 0;
+    height: 0;
+    margin: 0 auto;
+    border: 30px solid transparent;
+    border-bottom: 60px solid @r;
+}
+#star-six::after {
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: -30px;
+    width: 0;
+    height: 0;
+    border: 30px solid transparent;
+    border-top: 60px solid @r;
+
+}
+
+// ======================
+#star-five {        // 两个钝角三角形加一个锐角三角形
+    position: relative;
+    width: 0;
+    height: 0;
+    margin: 50px auto;
+    border-right: 50px solid transparent;
+    border-bottom: 35px solid @r;
+    border-left: 50px solid transparent;
+    transform: rotate(35deg);
+}
+#star-five::before {
+    content: '';
+    position: absolute;
+    top: -22px;
+    left: -32px;
+    width: 0;
+    height: 0;
+    border-right: 15px solid transparent;
+    border-bottom: 40px solid @r;
+    border-left: 15px solid transparent;
+    transform: rotate(-35deg);
+}
+#star-five::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: -52px;
+    width: 0;
+    height: 0;
+    border-right: 50px solid transparent;
+    border-bottom: 35px solid @r;
+    border-left: 50px solid transparent;
+    transform: rotate(-70deg);
+}
+
+// ======================
+#pentagon {    // 倒着的梯形加三角形
+    position: relative;
+    top: 60px;
+    width: 54px;
+    margin: 0 auto;
+    border-top: 50px solid @r;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+}
+#pentagon::before {
+    content: '';
+    position: absolute;
+    top: -85px;
+    left: -18px;
+    border-bottom: 35px solid @r;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+}
+// ======================
+#heart {
+    position: relative;
+    top: 50px;
+    margin: 0 auto;
+    height: 90px;
+    width: 100px;
+}
+#heart::before, #heart::after {
+    content: '';
+    position: absolute;
+    left: 50px;
+    height: 80px;
+    width: 50px;
+    background-color: @r;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+#heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+// ======================
+#infinity {
+    position: relative;
+    top: 30px;
+    margin: 0 auto;
+    width: 212px;
+    height: 100px;
+}
+#infinity::before, #infinity::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border: 20px solid @r;
+    border-radius: 50px 50px 0 50px;
+    transform: rotate(-45deg);
+}
+#infinity::after {
+    left: 70px;
+    border-radius: 50px 50px 50px 0;
+    transform: rotate(45deg);
+}
+
+// ======================
+#diamond {
+    position: relative;
+    top: 70px;
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border:30px solid transparent;
+    border-top: 50px solid @r;
+}
+#diamond::after {
+    content: '';
+    position: absolute;
+    top: -130px;
+    left: -30px;
+    width: 0;
+    height: 0;
+    border:30px solid transparent;
+    border-bottom: 50px solid @r;
+}
+
+// ======================
+#egg {
+    position: relative;
+    left: 30px;
+    height: 100px;
+    width: 60px;
+    background-color: @r;
+    border-top-left-radius: 50% 60%;
+    border-top-right-radius: 50% 60%;
+    border-bottom-left-radius: 50% 40%;
+    border-bottom-right-radius: 50% 40%;
+}
+
+// ======================
+#pac-man {
+    width: 0;
+    height: 0;
+    border: 40px solid @r;
+    border-right: 40px solid transparent;
+    border-radius: 100%;
+}
+
+// ======================
+#talk-bubble-down {
+    position: relative;
+    left: 30px;
+    width: 80px;
+    height: 50px;
+    background-color: @r;
+    border-radius: 30%;
+}
+#talk-bubble-down::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 30px solid transparent;
+    border-right: 30px solid @r;
+}
+
+// ======================
+#talk-bubble-left {
+    position: relative;
+    left: 30px;
+    width: 80px;
+    height: 50px;
+    background-color: @r;
+    border-radius: 30%;
+}
+#talk-bubble-left::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    border-right: 15px solid @r;
+}
+
+// ======================
+#yin-yang {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    border: 1px solid @r;
+    border-bottom: 25px solid @r;
+    background-color: #eee;
+    border-radius: 100%;
+}
+#yin-yang::before, #yin-yang::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background-color: #eee;
+    border: 9px solid @r;
+    border-radius: 100%;
+}
+#yin-yang::after {
+    left: 50%;
+    background-color: @r;
+    border: 9px solid #eee;
+}
+
+// ======================
+#badge-ribbon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: @r;
+    border-radius: 100%;
+}
+#badge-ribbon::before, #badge-ribbon::after {
+    content: '';
+    position: absolute;
+    top: 35px;
+    left: -5px;
+    border-bottom: 35px solid @r;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    transform: rotate(-140deg);
+}
+#badge-ribbon::after {
+    left: auto;
+    right: -5px;
+    transform: rotate(140deg);
+}
+
+// ======================
+#magnifying-glass {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border: 3px solid @r;
+    border-radius: 100%;
+}
+#magnifying-glass::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    height: 3px;
+    width: 30px;
+    background-color: @r;
+    transform: rotate(45deg);
+}
+// ======================
+#moon {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    box-shadow: 5px 5px 0 @r;
+}
+// ======================
+// ======================
+// ======================
+// ======================
+// ======================
