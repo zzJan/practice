@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>禁止输入中文</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrap">
+                <form action="">
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            <label class="control-label" for="input">不能输入中文:</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input id="input" class="form-control" type="text" name="input" placeholder="不能输入中文" data-ime="1">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            var input = document.querySelector('#input');
+            input.addEventListener('focus', function() {
+                if(input.getAttribute('data-ime')) {
+                    input.onkeyup = input.onblur = function() {
+                        input.value = input.value.replace(/[\u4e00-\u9fa5]/g, '');
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

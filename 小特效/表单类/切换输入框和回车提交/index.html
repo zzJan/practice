@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>切换输入框和回车提交</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrap">
+                <form action="">
+                    <div class="form-group">
+                        <label for="name" class="control-label col-sm-2">用户名</label>
+                        <div class="col-sm-10">
+                            <input id="name" class="form-control" type="text" name="name" placeholder="用户名" tabindex="1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="control-label col-sm-2">密码</label>
+                        <div class="col-sm-10">
+                            <input id="password" class="form-control" type="password" name="password" placeholder="密码" tabindex="2">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            <input id="code" class="form-control" type="text" name="code" placeholder="验证码" tabindex="3">
+                        </div>
+                        <div class="col-sm-5"></div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <script>
+            var name = document.getElementById('name').value,
+                password = document.getElementById('password').value,
+                code = document.getElementById('code').value;
+            document.addEventListener('keydown', function(e) {
+                var e = e || window.event,
+                    keyCode = e.keyCode || e.which;
+                if(keyCode === 13) {
+                    alert('用户名:' + name + '\n密码:' + password + '\n验证码:' + code);
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>canvas</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="canvas.css">
+    </head>
+    <body>
+        <canvas id="canvas01" height="200" width="200"></canvas>
+        <canvas id="canvas02" height="200" width="200"></canvas>
+        <canvas id="canvas03" height="200" width="200"></canvas>
+        <canvas id="canvas04" height="200" width="200"></canvas>
+        <canvas id="canvas05" height="200" width="200"></canvas>
+        <canvas id="canvas06" height="200" width="200"></canvas>
+        <canvas id="canvas07" height="200" width="200"></canvas>
+        <canvas id="canvas08" height="200" width="200"></canvas>
+        <canvas id="canvas09" height="200" width="200"></canvas>
+        <canvas id="canvas10" height="200" width="200"></canvas>
+        <canvas id="canvas11" height="200" width="200"></canvas>
+        <canvas id="canvas12" height="200" width="200"></canvas>
+        <canvas id="canvas13" height="200" width="200"></canvas>
+        <canvas id="canvas14" height="200" width="200"></canvas>
+        <canvas id="canvas15" height="200" width="200"></canvas>
+        <canvas id="canvas16" height="200" width="200"></canvas>
+        <canvas id="canvas17" height="200" width="200"></canvas>
+        <canvas id="canvas18" height="200" width="200"></canvas>
+        <canvas id="canvas19" height="200" width="200"></canvas>
+        <canvas id="canvas20" height="200" width="200"></canvas>
+        <canvas id="canvas21" height="200" width="200"></canvas>
+        <canvas id="canvas22" height="200" width="200"></canvas>
+        <canvas id="canvas23" height="200" width="200"></canvas>
+        <canvas id="canvas24" height="200" width="200"></canvas>
+        <canvas id="canvas25" height="200" width="200"></canvas>
+        <canvas id="canvas26" height="200" width="200"></canvas>
+        <canvas id="canvas27" height="200" width="200"></canvas>
+        <canvas id="canvas28" height="200" width="200"></canvas>
+        <canvas id="canvas29" height="200" width="200"></canvas>
+        <canvas id="canvas30" height="200" width="200"></canvas>
+        <script>
+            var ctx = document.getElementById('canvas01').getContext('2d');
+            // 样式
+            ctx.fillStyle = 'rgb(255, 0, 0)';
+            // fillRect(x, y, height, width)
+            ctx.fillRect(20, 10, 50, 50);
+
+            ctx.fillStyle = 'rgba(0, 255, 0, 0.5)';
+            ctx.fillRect(40, 40, 50, 50);
+
+            ctx.fillStyle = 'rgb(0, 0, 0)';
+            ctx.fillRect(100, 100, 50, 50);
+            // 橡皮擦
+            ctx.clearRect(115, 115, 25, 25);
+            // 边框
+            ctx.strokeRect(130, 130, 10, 10);
+
+            // ===============================
+            var ctx = document.getElementById('canvas02').getContext('2d');
+                ;
+            ctx.beginPath();
+            ctx.moveTo(50, 50);
+            ctx.lineTo(100, 50);
+            ctx.lineTo(75, 75);
+            ctx.fill()
+
+            // ===============================
+            var ctx = document.getElementById('canvas03').getContext('2d');
+            ctx.beginPath();
+            ctx.arc(75,75,50,0,Math.PI*2,true); // 绘制
+            ctx.moveTo(110,75);
+            ctx.arc(75,75,35,0,Math.PI,false);   // 口(顺时针)
+            ctx.moveTo(65,65);
+            ctx.arc(60,65,5,0,Math.PI*2,true);  // 左眼
+            ctx.moveTo(95,65);
+            ctx.arc(90,65,5,0,Math.PI*2,true);  // 右眼
+            ctx.stroke();
+
+            // ================================
+            var ctx = document.getElementById('canvas04').getContext('2d');
+            for(var i=0;i<4;i++){
+                for(var j=0;j<3;j++){
+                    ctx.beginPath();
+                    var x              = 25+j*50;               // x 坐标值
+                    var y              = 25+i*50;               // y 坐标值
+                    var radius         = 20;                    // 圆弧半径
+                    var startAngle     = 0;                     // 开始点
+                    var endAngle       = Math.PI+(Math.PI*j)/2; // 结束点
+                    var anticlockwise  = i%2==0 ? false : true; // 顺时针或逆时针
+
+                    ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+                    if (i>1){
+                      ctx.fill();
+                    } else {
+                      ctx.stroke();
+                    }
+                }
+            }
+
+            // ================================
+            var ctx = document.getElementById('canvas05').getContext('2d');
+            //二次曲线
+            ctx.beginPath();
+            ctx.moveTo(75,40);
+            ctx.bezierCurveTo(75,37,70,25,50,25);
+            ctx.bezierCurveTo(20,25,20,62.5,20,62.5);
+            ctx.bezierCurveTo(20,80,40,102,75,120);
+            ctx.bezierCurveTo(110,102,130,80,130,62.5);
+            ctx.bezierCurveTo(130,62.5,130,25,100,25);
+            ctx.bezierCurveTo(85,25,75,37,75,40);
+            ctx.fill();
+
+            // ===============================
+            var ctx = document.getElementById('canvas06').getContext('2d');
+            ctx.beginPath();
+            var rectangle = new Path2D();
+            rectangle.rect(10, 10, 80, 80)
+            var circle = new Path2D();
+            circle.arc(130, 130, 30, 0, 2*Math.PI, true);
+            ctx.stroke(rectangle);
+            ctx.fill(circle);
+
+            // ============================
+            var ctx = document.getElementById('canvas07').getContext('2d');
+            for (var i=0;i<8;i++){
+                for (var j=0;j<8;j++){
+                  ctx.fillStyle = 'rgb(' + Math.floor(255-32*i) + ',' +
+                                   Math.floor(255-32*j) + ',0)';
+                  ctx.fillRect(j*25,i*25,25,25);
+                }
+            }
+
+            // ============================
+            var ctx = document.getElementById('canvas08').getContext('2d');
+            for (var i=0;i<8;i++){
+              for (var j=0;j<8;j++){
+                ctx.strokeStyle = 'rgb(0,' + Math.floor(255-32*i) + ',' +
+                                 Math.floor(255-32*j) + ')';
+                ctx.beginPath();
+                ctx.arc(12.5+j*25,12.5+i*25,10,0,Math.PI*2,true);
+                ctx.stroke();
+              }
+            }
+
+            // ============================
+            var ctx = document.getElementById('canvas09').getContext('2d');
+              // 画背景
+              ctx.fillStyle = 'rgb(255,221,0)';
+              ctx.fillRect(0,0,150,37.5);
+              ctx.fillStyle = 'rgb(102,204,0)';
+              ctx.fillRect(0,37.5,150,37.5);
+              ctx.fillStyle = 'rgb(0,153,255)';
+              ctx.fillRect(0,75,150,37.5);
+              ctx.fillStyle = 'rgb(255,51,0)';
+              ctx.fillRect(0,112.5,150,37.5);
+
+              // 画半透明矩形
+              for (var i=0;i<10;i++){
+                ctx.fillStyle = 'rgba(255,255,255,'+(i+1)/10+')';
+                for (var j=0;j<4;j++){
+                  ctx.fillRect(5+i*14,5+j*37.5,14,27.5)
+                }
+              }
+
+            // ============================
+            var ctx = document.getElementById('canvas10').getContext('2d');
+            var lingrad = ctx.createLinearGradient(0, 0, 0, 150);
+            // 渐变起始色
+            lingrad.addColorStop(0, '#FF00FF');
+            // 渐变中间色
+            lingrad.addColorStop(0.5, '#00ABEB');
+            // 渐变结束色
+            lingrad.addColorStop(1, '#FFFFFF');
+            ctx.fillStyle = lingrad;
+            ctx.fillRect(10, 10, 160, 160);
+
+            // ============================
+            var ctx = document.getElementById('canvas11').getContext('2d');
+            // 创建渐变
+            var radgrad = ctx.createRadialGradient(45,45,10,52,50,30);
+            radgrad.addColorStop(0, '#A7D30C');
+            radgrad.addColorStop(0.9, '#019F62');
+            radgrad.addColorStop(1, 'rgba(1,159,98,0)');
+
+            var radgrad2 = ctx.createRadialGradient(105,105,20,112,120,50);
+            radgrad2.addColorStop(0, '#FF5F98');
+            radgrad2.addColorStop(0.75, '#FF0188');
+            radgrad2.addColorStop(1, 'rgba(255,1,136,0)');
+
+            var radgrad3 = ctx.createRadialGradient(95,15,15,102,20,40);
+            radgrad3.addColorStop(0, '#00C9FF');
+            radgrad3.addColorStop(0.8, '#00B5E2');
+            radgrad3.addColorStop(1, 'rgba(0,201,255,0)');
+
+            var radgrad4 = ctx.createRadialGradient(0,150,50,0,140,90);
+            radgrad4.addColorStop(0, '#F4F201');
+            radgrad4.addColorStop(0.8, '#E4C700');
+            radgrad4.addColorStop(1, 'rgba(228,199,0,0)');
+
+            // 画图形
+            ctx.fillStyle = radgrad4;
+            ctx.fillRect(0,0,200,200);
+            ctx.fillStyle = radgrad3;
+            ctx.fillRect(0,0,200,200);
+            ctx.fillStyle = radgrad2;
+            ctx.fillRect(0,0,200,200);
+            ctx.fillStyle = radgrad;
+            ctx.fillRect(0,0,200,200);
+
+            // ============================
+            var ctx = document.getElementById('canvas12').getContext('2d');
+            var image = new Image();
+            image.src = 'img/pattern.png';
+            image.onload = function() {
+                var pattern = ctx.createPattern(image, 'repeat');
+                // ctx.strokeStyle = pattern;
+                // ctx.lineWidth = 15;
+                // ctx.beginPath();
+                // ctx.moveTo(5, 5);
+                // ctx.lineTo(200, 5);
+                // ctx.stroke();
+
+                // ===========================
+                // ctx.fillStyle = pattern;
+                // ctx.fillRect(0, 0, 200, 200);
+            }
+
+            // ============================
+            var ctx = document.getElementById('canvas13').getContext('2d');
+            ctx.shadowOffsetX = 5;
+            ctx.shadowOffsetY = 5;
+            ctx.shadowBlur = 5;
+            ctx.shadowColor = '#777';
+            ctx.font = '30px Times New Roman';
+            ctx.fillStyle = 'rgb(0, 0, 0)';
+            ctx.fillText('test sentence', 5, 60);
+
+            // ============================
+            var ctx = document.getElementById('canvas14').getContext('2d');
+            ctx.fillRect(0,0,150,150);   // 使用默认设置绘制一个矩形
+            ctx.save();                  // 保存默认状态
+
+            ctx.fillStyle = '#09F'       // 在原有配置基础上做改变
+            ctx.fillRect(15,15,120,120); // 使用新的设置绘制一个矩形
+
+            ctx.save();                  // 保存当前状态
+            ctx.fillStyle = '#FFF'       // 再次改变配置
+            ctx.globalAlpha = 0.5;
+            ctx.fillRect(30,30,90,90);   // 使用新的配置绘制一个矩形
+
+            ctx.restore();               // 重新加载之前的状态
+            ctx.fillRect(45,45,60,60);   // 使用上一次的配置绘制一个矩形
+
+            ctx.restore();               // 加载默认配置
+            ctx.fillRect(60,60,30,30);   // 使用加载的配置绘制一个矩形
+        </script>
+    </body>
+</html>

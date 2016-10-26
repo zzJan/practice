@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>动态操作下拉选项</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrap">
+                <form>
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <input id="txt" class="form-control" type="text" placeholder="选项格式: 选项名，选项群格式：选项群，向特定选项群添加选项名格式：选项群|选项名">
+                        </div>
+                        <button id="btn-opt" class="btn btn-primary" type="button">添加选项</button>
+                        <button id="btn-optgroup" class="btn btn-primary" type="button">添加选项群</button>
+                    </div>
+
+                    <select id="select" class="form-control">
+                        <optgroup label="test">
+                            <option value="测试">测试</option>
+                        </optgroup>
+                    </select>
+
+                    <button id="del" class="btn btn-danger" type="button">删除选中选项</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            var select = document.getElementById('select'),
+                btnOpt = document.getElementById('btn-opt'),
+                btnOptgroup = document.getElementById('btn-optgroup'),
+                del = document.getElementById('del'),
+                txt = document.getElementById('txt');
+            function checkTxt(value) {
+                if(value === '') return null;
+                return value;
+            }
+
+            btnOpt.addEventListener('click', function() {
+                var value = checkTxt(txt.value);
+                if(value) {
+                    select.appendChild(new Option(value, value));
+                }
+            })
+            del.addEventListener('click', function() {
+                var selected = select.selectedIndex;
+                select.remove(selected);
+            })
+        </script>
+    </body>
+</html>

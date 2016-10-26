@@ -5,22 +5,24 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta charset="UTF-8">
 		<style>
-			
+
 		</style>
 	</head>
 	<body>
-		<div id="start">
-			<a href="#">测试</a>
-		</div>
-		<div></div>
+		<input id="input" type="text" placeholder="输入数字">
+		<button id="transfer" type="button">添加逗号</button>
 		<script>
-		var reg = /(\d{3})(?=(\d))/g
-		var a = reg.exec('1000')
-		console.log(window.a)
-		// console.log(window.b)
-		// console.log(window.c)
-		// console.log(window.d)
+			document.getElementById('transfer').addEventListener('click', function() {
+				var input = document.getElementById('input'),
+					reg = /(\d{3})(?=(\d))/g;
+				if(input.value && input.value.indexOf(',') !== 0) {
+					input.value = input.value.replace(reg, '$1,');
+				} else {
+					alert('数字错误')
+				}
+			})
+
 		</script>
-		
+
 	</body>
 </html>

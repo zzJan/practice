@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrap">
+                <form action="">
+                    <div class="form-group">
+                        <label for="input" class="col-sm-2 control-label">禁止复制和粘贴</label>
+                        <div class="col-sm-7">
+                            <input id="input" class="form-control" type="text" placeholder="禁止复制和粘贴" >
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            var input = document.querySelector('#input');
+            input.oncopy = input.onpaste = function() {
+                return false;
+            }
+        </script>
+    </body>
+</html>
