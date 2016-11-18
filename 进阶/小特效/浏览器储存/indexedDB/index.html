@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrap">
+
+            </div>
+        </div>
+
+        <script>
+            'use strict'
+            window.indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.msIndexedDB;
+            if (!window.indexedDB) {
+                alert("你的浏览器不支持IndexedDB，请更换浏览器");
+            }
+            // 初始化keyRange属性火狐没有下面的属性
+            window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange
+
+            //如果该数据库不存在，则会被创建；如果已经存在，则被打开
+            var dbName = 'myTestDB',
+                tableName = 'stu';
+            var request = window.indexedDB.open(dbName);
+            // 回调
+            request.onsuccess = function() {
+                log('打开数据库成功');
+            }
+            request.onerror = function(error) {
+                log(error);
+            }
+
+
+            // open函数接受的第二个参数，代表数据的版本，当打开的版本号比当前的版本号大时，会触发onupgradeneeded这个回调，你不能使用浮点数，否则它会被转换成最接近的较小的整数并且事务可能不会启动，同样 upgradeneeded 事件也不会作为一个结果返回。例如不要使用 2.4 作为版本
+            var request = window.indexedDB.open(dbName, 2);
+            var stuData = [
+                {id: '001', name: 'ming', email: '001@qq.com'},
+                {id: '002', name: 'liang', email: '002@qq.com'},
+            ];
+            request.onerror = function(error) {
+                log(error);
+            }
+            // 更新版本回调
+            request.onupgradeneeded = function(event) {
+                var db = event.target.result;
+                //创建表，以id字段作为主键来确保唯一，使用keyPath表示
+                var objectStore = db.createObjectStore(tableName, {keyPath: 'id'})
+            }
+            //给表添加索引
+            // 创建一个索引来通过 name 搜索学生，可能会有重复的，因此我们不能使用 unique 索引。
+            objectStore.createIndex('name', 'name', {unique: false});
+            // 创建一个索引来通过 email 搜索学生，我们希望确保不会有两个客户使用相同的 email 地址，因此我们使用一个 unique 索引。
+            objectStore.createIndex('email', 'email', {unique: true});
+            for(var i in stuData) {
+                objectStore.add(stuData[i]);
+            }
+            log('--------- init db success -------------');
+
+
+
+            // transaction()方法接受两个参数并返回一个事务对象。第一个参数是事务希望跨越的对象存储空间的列表，即数据库中的表名称。如果你希望事务能够跨越所有的对象存储空间你可以传入一个空数组。第二个参数如果你没有为第二个参数指定任何内容，默认只读。
+
+            // 增
+            var addData = [
+                {id: '003', name: 'liu', email: '003@qq.com'},
+                {id: '004', name: 'fang', email: '004@qq.com'},
+                {id: '005', name: 'qiu', email: '005@qq.com'},
+            ]
+            var request = window.indexedDB.open(dbName);
+            request.onerror = function(error) {
+                log(error)
+            }
+            request.onsuccess = function(event) {
+                var db = event.target.result;
+                var transaction = db.transaction([tableName], 'readwrite');
+                // 事务错误回调
+                transaction.onerror = function(error) {
+                    log(error);
+                }
+                // 事务中断回调
+                transaction.onbort = function() {
+
+                }
+                // 事务成功回调
+                transaction.onsuccess = function() {
+                    log('------ transaction success -------')
+                }
+                var objectStore = transaction.objectStore(tableName);
+                for(var i in addData) {
+                    var request = objectStore.add(addData[i]);
+                    request.onsuccess = function(event) {
+                        log(addData[i].name + '，添加成功')
+                    }
+                }
+                log('------ add data success -------')
+            }
+
+            // 删
+            var request = window.indexedDB.open(dbName);
+            request.onerror = function(error) {
+                log(error)
+            }
+            request.onsuccess = function(event) {
+                var db = event.target.result;
+                // 删除数据请求的级联写法
+                var request = db.transaction([tableName], 'readwrite')
+                                .objectStore(tableName)
+                                .delete('001');
+                request.onsuccess = function(event) {
+                    log('删除001成功');
+                    log('------ delete data success -------');
+                }
+                request.onerror = function(error) {
+                    log(error);
+                }
+            }
+
+
+
+            // 查（法一）
+            var request = window.indexedDB.open(dbName);
+            request.onerror = function(error) {
+                log(error)
+            }
+            request.onsuccess = function(event) {
+                var db = event.target.result;
+                db.transaction([tableName]).objectStore(tableName).get('002').onsuccess = function(event) {
+                    log('id为002的学生的名字是' + event.target.result.name + '，邮箱是' + event.target.result.email);
+                    log('------ select data success -------')
+                }
+                // “name” 游标不是唯一的，因此 name 被设成 "fang" 的记录可能不止一条。在这种情况下，你总是得到键值最小的那个。
+                // db.transaction([tableName]).objectStore(tableName).index('name').get('fang').onsuccess = function(event) {
+                //     log('姓名为fang的学生的id是' + event.target.result.id);
+                // }
+
+                // 如果希望返回所有 name 被设成 "fang" 的记录，可以使用游标
+
+                // 使用opencursor()
+                // db.transaction([tableName]).objectStore(tableName).index('name').openCursor(IDBKeyRange.only('fang')).onsuccess = function(event) {
+                //     var cursor = event.target.result;
+                //     if(cursor) {
+                //         cursor.key 是一个 name, 就像 "fang", 然后 cursor.value 是整个对象。
+                        // log('姓名为' + cursor.key + '的学生的id是' + cursor.value.id + '，邮箱是' + cursor.value.email);
+                        // cursor.continue();
+                //     }
+                // }
+
+                // 使用openKeycursor()
+                // db.transaction([tableName]).objectStore(tableName).index('name').openKeyCursor(IDBKeyRange.only('fang')).onsuccess = function(event) {
+                //     var cursor = event.target.result;
+                //     if(cursor) {
+                //     cursor.key is 一个 name, 就像 "fang", 然后 cursor.value 是那个 id,没有办法可以得到存储对象的其余部分。
+                //         log('姓名为' + cursor.key + '的学生的id是' + cursor.value.id);
+                //         cursor.continue();
+                //     }
+                // }
+            }
+
+            // 查（游标）
+            // openCursor() 函数需要几个参数。首先，你可以使用一个 key range 对象来限制被检索的项目的范围。第二，你可以指定你希望进行迭代的方向。
+            var request = window.indexedDB.open(dbName);
+            request.onerror = function(error) {
+                log(error)
+            }
+            request.onsuccess = function(event) {
+                var db = event.target.result;
+                var objectStore = db.transaction([tableName]).objectStore(tableName);
+                objectStore.openCursor().onsuccess = function(event) {
+                    var cursor = event.target.result;
+                    if(cursor) {
+                        log('id为' + cursor.key + '的学生的名字是' + cursor.value.name + '，邮箱是' + cursor.value.email);
+                            cursor.continue();
+                    } else {
+                        log('------ cursor select data success -------')
+                    }
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+            function log(obj) {
+                console.log(obj);
+            }
+        </script>
+    </body>
+</html>

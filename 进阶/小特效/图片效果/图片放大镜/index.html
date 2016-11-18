@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+        <style>
+            .wrap{width:200px; height: 200px;}
+            #small{ width:200px; height:200px; position:relative;}
+            .layer{ width:50px; height:50px; background:#fff; filter:alpha(opacity:30); opacity:0.3; position:absolute; top:0; left:0; display:none;}
+            .mark{ width:100%; height:100%; position:absolute; z-index:2; left:0px; top:0px; background:red; filter:alpha(opacity:0); opacity:0; }
+            #big{ position:absolute; top: 0px; left:400px; width:100px; height:100px; overflow:hidden; background-image: url('big.jpg'); background-position: 0 0; background-repeat: no-repeat;display:none; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrap">
+                <div id="small">
+                    <span class="layer"></span>
+                    <img src="small.jpg" alt="">
+                </div>
+
+                <div id="big"></div>
+            </div>
+        </div>
+
+        <script>
+            var wrap = document.querySelector('.wrap'),
+                layer = document.querySelector('.layer'),
+                small = document.querySelector('#small'),
+                big = document.querySelector('#big');
+            small.addEventListener('mousemove', function(e) {
+                layer.style.display = big.style.display = 'block';
+                e = e || event;
+                var top = Math.max(0, Math.min(e.clientY - wrap.offsetTop - layer.offsetHeight/2, wrap.offsetHeight - layer.offsetHeight)),
+                    left = Math.max(0, Math.min(e.clientX - wrap.offsetLeft - layer.offsetWidth/2, wrap.offsetWidth - layer.offsetWidth));
+                layer.style.top = top + 'px';
+                layer.style.left = left + 'px';
+
+                var X = -2*(e.clientX - wrap.offsetLeft - layer.offsetWidth/2),
+                    Y = -2*(e.clientY - wrap.offsetTop - layer.offsetHeight/2);
+                big.style.backgroundPosition = X + 'px ' + Y + 'px';
+            })
+            console.log(Width)
+            small.addEventListener('mouseout', function() {
+                layer.style.display = big.style.display = 'none';
+            })
+        </script>
+    </body>
+</html>

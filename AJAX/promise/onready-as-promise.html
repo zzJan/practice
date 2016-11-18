@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        function onReadyPromise(fn) {
+            return new Promise((resolve, reject) => {
+                let readyState = document.readyState;
+                if(readyState === 'interactive' || readyState === 'complete') {
+                    resolve()
+                } else {
+                    window.addEventListener('DOMContentLoaded', resolve)
+                }
+            })
+        }
+
+        onReadyPromise().then(function() {
+            console.log('DOM OK')
+        })
+        console.log('start')
+    </script>
+</head>
+<body>
+</body>
+</html>
+
+

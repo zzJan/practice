@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrap">
+                <button id="yellow" class="btn" type="button" data-color="yellow">yellow</button>
+                <button id="blue" class="btn" type="button" data-color="blue">blue</button>
+                <button id="red" class="btn" type="button" data-color="red">red</button>
+            </div>
+        </div>
+
+        <script>
+            var body = document.body,
+                btn = document.querySelectorAll('button');
+
+            (function init() {
+                var color = getCookie('color');
+                // var color = getItem('color');
+                if(color) {
+                    setColor(decodeURI(color));
+                }
+                return false;
+            })();
+            (function changeColor() {
+                for(var i=0;i<btn.length;i++) {
+                    btn[i].addEventListener('click', function() {
+                        setColor(this.getAttribute('data-color'));
+                    })
+                }
+            })();
+            function setColor(color) {
+                console.log(color);
+                console.log(body.style.backgroundColor !== color);
+                if(color && body.style.backgroundColor !== color) {
+                    body.style.backgroundColor = color;
+                    setCookie('color', color, 1);
+                    // setItem('color', color);
+                }
+                return true;
+            }
+
+            // cookie
+            function setCookie(key, value, day) {
+                console.log(1)
+                var d = new Date();
+                d.setDate(d.getDate() + day);
+                document.cookie = ';' + key + '=' + encodeURI(value) + ';expires=' + d + ';';
+                console.log(document.cookie)
+            }
+            function getCookie(key) {
+                var reg = new RegExp('(' + key + ')=(.*);'),
+                    arr;
+                arr = reg.exec(document.cookie);
+                if(arr) {
+                    arr[2]
+                }
+                return null;
+            }
+            function delCookie(key) {
+                setCookie(key, 1, -1);
+            }
+
+            // localStorage / sessionStorage
+            function setItem(key, value) {
+                localStorage.setItem(key, value);
+            }
+            function getItem(key) {
+                return localStorage.getItem(key);
+            }
+            function removeItem(key) {
+                localStorage.removeItem(key);
+            }
+        </script>
+    </body>
+</html>
